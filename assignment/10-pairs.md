@@ -1,0 +1,74 @@
+# PARTNERS FOR ASSIGNMENT 10
+
+-   10pair 1
+    -   Nirmitee Gite <nirmitee.gite@huskers.unl.edu>
+    -   Josh Seamans <josh.seamans@huskers.unl.edu> <josh@seamans.me>
+-   10pair 2
+    -   Shreeya Vaitla <svaitla@huskers.unl.edu>
+    -   Shawn Knowlton <shawn.knowlton@huskers.unl.edu>
+-   10pair 3
+    -   Cody Berglund <cody.berglund@huskers.unl.edu>
+    -   David Gao <david.gao313@huskers.unl.edu> <582435572@qq.com>
+-   10pair 4
+    -   Daniel Shchur <daniel.shchur@huskers.unl.edu>
+    -   Peter Nguyen <petervnguyen99@huskers.unl.edu> <petervnguyen99@gmail.com>
+-   10pair 5
+    -   Levi Hagen <levi.hagen@huskers.unl.edu>
+    -   Ayush Mishra <ayush.mishra@huskers.unl.edu>
+-   10pair 6
+    -   Qiwei Ge <qge@huskers.unl.edu> <qiwei@laurens-air-2.unl.edu>
+    -   Sean Termini <sean.termini@huskers.unl.edu> <seantermini@sbcglobal.net>
+-   10pair 7
+    -   Pengxiang Zhang <pengxiangzhang@huskers.unl.edu>
+    -   Devan Steiner <devan.steiner@huskers.unl.edu>
+-   10pair 8
+    -   John Earnest <jearnest121@huskers.unl.edu> <johnearnest44@gmail.com>
+    -   Dan Thibodeau <dan.thibodeau@huskers.unl.edu>
+-   10pair 9
+    -   Isaac Askey <iaskey@huskers.unl.edu>
+    -   Trang Le <trangle@huskers.unl.edu>
+-   10pair 10
+    -   Bernard Lee <bernard.lee@huskers.unl.edu> <bernardlee-99@outlook.com>
+    -   Zoe Hudson <zoe.hudson@huskers.unl.edu>
+-   10pair 11
+    -   Ryan Thomas <rycospam@gmail.com> <rsthomas@huskers.unl.edu>
+    -   Soham Sandeepbhai Patel <sohampatel1306@gmail.com> <ssp@huskers.unl.edu>
+-   10pair 12
+    -   Isaac Gillette <isaac.gillette21@huskers.unl.edu>
+    -   Amanda Rowley <arowley@huskers.unl.edu> <arowley2@unl.edu>
+-   10pair 13
+    -   Hundter Biede <hbiede@huskers.unl.edu> <hbiede@gmail.com>
+    -   Achintya Handa <achintyahanda@huskers.unl.edu>
+-   10pair 14
+    -   Jeremiah Cantu <jcantu@huskers.unl.edu>
+    -   Siyi Li <lisiyi-9887@huskers.unl.edu> <lisiyi_9887@126.com>
+-   10pair 15
+    -   Jaelle Kondohoma <jaelle.kondohoma@huskers.unl.edu> <jaellek@yahoo.com>
+    -   Jacob Atkins <atkins.jacob@huskers.unl.edu>
+-   10pair 16
+    -   Sterling Holmes <sterling.holmes@huskers.unl.edu>
+    -   Kassidy Maher <kmaher@huskers.unl.edu>
+-   10pair 17
+    -   Matthew Kuhry <mkuhry@huskers.unl.edu>
+    -   Bojun Zhong <bojun@huskers.unl.edu> <bernardlee-99@outlook.com>
+-   10pair 18
+    -   Paul O'Dell <prodell11@gmail.com> <paul.o-dell@huskers.unl.edu>
+    -   Cole McReynolds <cmcreynolds@huskers.unl.edu>
+-   10pair 19
+    -   Jacob Fox <jfox40@huskers.unl.edu>
+    -   Hunter Dorhout <hdorhout@huskers.unl.edu> <hdorhout07@gmail.com>
+-   10pair 20
+    -   Mario Gomez <mario.gomez@huskers.unl.edu> <mgomez6@unl.edu>
+    -   Conner Elliott <conner.elliott@huskers.unl.edu> <coellio5@gmail.com>
+-   10pair 21
+    -   Meyer Kluck <meyerkluck@huskers.unl.edu> <mkluck2@unl.edu>
+    -   Austin Schilz <austin.schilz@huskers.unl.edu>
+-   10pair 22
+    -   Xinyi Zhu <zhuxinyishcn@huskers.unl.edu>
+    -   Christine Discenza <christine.discenza@huskers.unl.edu>
+-   10pair 23
+    -   Abdelrahman Ahmed Mohamed Saad <asaad3@huskers.unl.edu> <abdelrahman.a171@gmail.com>
+    -   Anirudh Patchipulusu <apatchipulusu@huskers.unl.edu>
+-   10pair 24
+    -   Sarah Kornbluh <skornbluh@huskers.unl.edu>
+    -   Elliott Heineman <elliott.heineman@huskers.unl.edu>
