@@ -104,12 +104,11 @@ public class StorageCourse {
     }
 
     public StorageCourse getCourseFromID(ArrayList<StorageCourse> course, String courseID){
-        StorageCourse newCourse = null;
         for (StorageCourse desiredCourse : course) {
             if (desiredCourse.getCourseID().equals(courseID)) {
-                newCourse = desiredCourse;
+                return desiredCourse;
             }
         }
-        return newCourse;
+        return null;
     }
 }
