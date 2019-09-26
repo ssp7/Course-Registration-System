@@ -1,14 +1,15 @@
-﻿
-
-
-
-
-
-
-
-
-
-
-
-
-
+﻿Name,Major,RegisteredCourse1,RegisteredCourse2,RegisteredCourse3,RegisteredCourse4,RegisteredCourse5,RegisteredCourse6,RegisteredCourse7,RegisteredCourse8,CompletedCourse1,CompletedCourse2,CompletedCourse3,CompletedCourse4,CompletedCourse5,CompletedCourse6,CompletedCourse7,CompletedCourse8,CompletedCourse9,CompletedCourse10,CompletedCourse11,CompletedCourse12,CompletedCourse13,CompletedCourse14,CompletedCourse15,CompletedCourse16,CompletedCourse17,CompletedCourse18,CompletedCourse19,CompletedCourse20,CompletedCourse21,CompletedCourse22,CompletedCourse23,CompletedCourse24,CompletedCourse25
+Stu Dent,Computer Science,CSCE156,,,,,,,,CSCE155,CSCE235,,,,,,,,,,,,,,,,,,,,,,,
+Ima Coder,Computer Science,,,,,,,,,CSCE155,CSCE156,,,,,,,,,,,,,,,,,,,,,,,
+Turanga Leela,Computer Engineering,CSCE156,,,,,,,,CSCE155,,,,,,,,,,,,,,,,,,,,,,,,
+Philip Fry,Undecided,CSCE10,CSCE100,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Lisa Simpson,Computer Engineering,CSCE230,,,,,,,,CSCE155,CSCE156,CSCE235,CSCE310,,,,,,,,,,,,,,,,,,,,,
+Bart Simposon,Computer Science,CSCE156,,,,,,,,CSCE155,CSCE235,,,,,,,,,,,,,,,,,,,,,,,
+Moe Szyslak,Undecided,CSCE10,CSCE101,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+I.P. Freely,Undecided,CSCE10,CSCE101,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Seymour Butz,Computer Science,CSCE235,,,,,,,,CSCE155,CSCE156,CSCE231,CSCE310,,,,,,,,,,,,,,,,,,,,,
+Hugh Jass,Computer Engineering,CSCE230,,,,,,,,CSCE155,CSCE156,CSCE235,,,,,,,,,,,,,,,,,,,,,,
+Anita Bath,Computer Science,,,,,,,,,CSCE155,CSCE156,CSCE231,CSCE235,CSCE310,CSCE361,,,,,,,,,,,,,,,,,,,
+Ura Snotball,Computer Engineering,,,,,,,,,CSCE155,CSCE156,CSCE230,CSCE235,,,,,,,,,,,,,,,,,,,,,
+Yuri Nator,Computer Science,,,,,,,,,CSCE155,CSCE156,CSCE231,CSCE235,,,,,,,,,,,,,,,,,,,,,
+Moe Ron,Computer Science,,,,,,,,,CSCE155,CSCE156,CSCE231,CSCE235,CSCE310,,,,,,,,,,,,,,,,,,,,
