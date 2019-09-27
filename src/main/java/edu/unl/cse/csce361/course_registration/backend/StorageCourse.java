@@ -19,7 +19,21 @@ public class StorageCourse {
         return courseID;
     }
 
-    public void setCourseID(String courseID) {
+    @Override
+	public String toString() {
+		return "StorageCourse [courseID=" + courseID + ", section=" + section + ", CourseName=" + CourseName + ", Room="
+				+ Room + ", Days=" + Days + ", StartTime=" + StartTime + ", Semester=" + Semester
+				+ ", studentsRegistered=" + studentsRegistered + ", availableSeats=" + availableSeats + ", URL=" + URL
+				+ ", prerequisiteCourseIDs=" + prerequisiteCourseIDs + ", getCourseID()=" + getCourseID()
+				+ ", getSection()=" + getSection() + ", getCourseName()=" + getCourseName() + ", getRoom()=" + getRoom()
+				+ ", getDays()=" + getDays() + ", getStartTime()=" + getStartTime() + ", getSemester()=" + getSemester()
+				+ ", getStudentsRegistered()=" + getStudentsRegistered() + ", getAvailableSeats()="
+				+ getAvailableSeats() + ", getURL()=" + getURL() + ", getPrerequisiteCourseIDs()="
+				+ getPrerequisiteCourseIDs() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode()
+				+ ", toString()=" + super.toString() + "]";
+	}
+
+	public void setCourseID(String courseID) {
         this.courseID = courseID;
     }
 
