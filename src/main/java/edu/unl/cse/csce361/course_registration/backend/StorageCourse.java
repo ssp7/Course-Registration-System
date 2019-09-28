@@ -1,15 +1,18 @@
 package edu.unl.cse.csce361.course_registration.backend;
 
+import edu.unl.cse.csce361.course_registration.MeetingTime;
+
 import java.util.ArrayList;
 
 public class StorageCourse {
     private String courseID;
     private String section;
-    private String CourseName;
-    private String Room;
-    private String Days;
-    private String StartTime;
-    private String Semester;
+    private String courseName;
+    private String room;
+    private String days;
+    private String startTime;
+    private String semester;
+    private MeetingTime meetingTime;
     private int studentsRegistered;
     private int availableSeats;
     private String URL;
@@ -21,8 +24,8 @@ public class StorageCourse {
 
     @Override
 	public String toString() {
-		return "StorageCourse [courseID=" + courseID + ", section=" + section + ", CourseName=" + CourseName + ", Room="
-				+ Room + ", Days=" + Days + ", StartTime=" + StartTime + ", Semester=" + Semester
+		return "StorageCourse [courseID=" + courseID + ", section=" + section + ", CourseName=" + courseName + ", Room="
+				+ room + ", Days=" + days + ", StartTime=" + startTime + ", Semester=" + semester
 				+ ", studentsRegistered=" + studentsRegistered + ", availableSeats=" + availableSeats + ", URL=" + URL
 				+ ", prerequisiteCourseIDs=" + prerequisiteCourseIDs + ", getCourseID()=" + getCourseID()
 				+ ", getSection()=" + getSection() + ", getCourseName()=" + getCourseName() + ", getRoom()=" + getRoom()
@@ -32,6 +35,28 @@ public class StorageCourse {
 				+ getPrerequisiteCourseIDs() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode()
 				+ ", toString()=" + super.toString() + "]";
 	}
+
+    public String printInfo(){
+        if(this.section.equals("ONLINE")){
+            return printOnlineCourse();
+        }else{
+            return printClassroomCourse();
+        }
+    }
+
+	public String printClassroomCourse(){
+        String space = "   ";
+        String courseInfo = this.courseID + space + this.courseName + space + this.semester
+                + space + this.section + space + this.section + space + this.room +space
+                + this.meetingTime + space + this.studentsRegistered + space + this.availableSeats;
+        return courseInfo;
+    }
+
+    public String printOnlineCourse(){
+        String space = "   ";
+        String courseInfo = this.courseID + space + this.courseName + space + this.semester + space + this.URL;
+        return courseInfo;
+    }
 
 	public void setCourseID(String courseID) {
         this.courseID = courseID;
@@ -46,43 +71,43 @@ public class StorageCourse {
     }
 
     public String getCourseName() {
-        return CourseName;
+        return courseName;
     }
 
     public void setCourseName(String courseName) {
-        CourseName = courseName;
+        this.courseName = courseName;
     }
 
     public String getRoom() {
-        return Room;
+        return room;
     }
 
     public void setRoom(String room) {
-        Room = room;
+        this.room = room;
     }
 
     public String getDays() {
-        return Days;
+        return days;
     }
 
     public void setDays(String days) {
-        Days = days;
+        this.days = days;
     }
 
     public String getStartTime() {
-        return StartTime;
+        return startTime;
     }
 
     public void setStartTime(String startTime) {
-        StartTime = startTime;
+        this.startTime = startTime;
     }
 
     public String getSemester() {
-        return Semester;
+        return semester;
     }
 
     public void setSemester(String semester) {
-        Semester = semester;
+        this.semester = semester;
     }
 
     public int getStudentsRegistered() {
