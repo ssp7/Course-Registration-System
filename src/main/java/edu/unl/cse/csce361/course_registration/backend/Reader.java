@@ -181,6 +181,7 @@ public class Reader {
 			course.setDays(Days);
 			String StartTime = courseData.get("StartTime");
 			course.setStartTime(StartTime);
+			course.setMeetingTime();
 			String Semester = courseData.get("Semester");
 			course.setSemester(Semester);
 			String studentsReg = courseData.get("NumberOfStudentsRegistered");
@@ -234,7 +235,7 @@ public class Reader {
 //			System.out.println( student.get(i).getName() +"  Reg : - "+ student.get(i).getRegisteredCousrsesID() +" size "+ student.get(i).getRegisteredCousrsesID() .size());
 //		}
 //
-	
+
 	}
 
 }

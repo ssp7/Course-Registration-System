@@ -153,6 +153,66 @@ public class StorageCourse {
         this.prerequisiteCourseIDs = prerequisiteCourseIDs;
     }
 
+    public void setMeetingTime(){
+        if(this.days == "MONDAY"){
+            switch (this.startTime){
+                case "0830":
+                    this.meetingTime = MeetingTime.MONDAY0830;
+                    break;
+                case "0930":
+                    this.meetingTime = MeetingTime.MONDAY0930;
+                    break;
+                case "1030":
+                    this.meetingTime = MeetingTime.MONDAY1030;
+                    break;
+                case "1130":
+                    this.meetingTime = MeetingTime.MONDAY1130;
+                case "1230":
+                    this.meetingTime = MeetingTime.MONDAY1230;
+                    break;
+                case "1330":
+                    this.meetingTime = MeetingTime.MONDAY1330;
+                    break;
+                case "1430":
+                    this.meetingTime = MeetingTime.MONDAY1430;
+                    break;
+                case "1530":
+                    this.meetingTime = MeetingTime.MONDAY1530;
+                    break;
+                case "1630":
+                    this.meetingTime = MeetingTime.MONDAY1630;
+                    break;
+                default:
+                    this.meetingTime = null;
+            }
+        }else if(this.days == "TUESDAY"){
+            switch (this.startTime){
+                case "0800":
+                    this.meetingTime = MeetingTime.TUESDAY0800;
+                    break;
+                case "0930":
+                    this.meetingTime = MeetingTime.TUESDAY0930;
+                    break;
+                case "1100":
+                    this.meetingTime = MeetingTime.TUESDAY1100;
+                    break;
+                case "1230":
+                    this.meetingTime = MeetingTime.TUESDAY1230;
+                    break;
+                case "1400":
+                    this.meetingTime = MeetingTime.TUESDAY1400;
+                    break;
+                case "1530":
+                    this.meetingTime = MeetingTime.TUESDAY1530;
+                    break;
+                case "1700":
+                    this.meetingTime = MeetingTime.TUESDAY1700;
+            }
+        }else{
+            this.meetingTime = null;
+        }
+    }
+
     public static StorageCourse getCourseWithID(ArrayList<StorageCourse> courses, String courseID){
         StorageCourse requestedCourse = null;
         StorageCourse candidateCourse;
