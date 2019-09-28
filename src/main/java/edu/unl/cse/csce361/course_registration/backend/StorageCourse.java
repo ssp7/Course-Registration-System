@@ -18,22 +18,29 @@ public class StorageCourse {
     private String URL;
     private ArrayList<String> prerequisiteCourseIDs;
 
-    public String getCourseID() {
-        return courseID;
+    public StorageCourse() {
+        this.courseID = "";
+        this.section = "";
+        this.courseName = "";
+        this.room = "";
+        this.days = "";
+        this.startTime = "";
+        this.semester = "";
+        this.meetingTime = null;
+        this.studentsRegistered = 0;
+        this.availableSeats = 0;
+        this.URL = "";
+        this.prerequisiteCourseIDs = new ArrayList<>();
+
     }
+
 
     @Override
 	public String toString() {
 		return "StorageCourse [courseID=" + courseID + ", section=" + section + ", CourseName=" + courseName + ", Room="
 				+ room + ", Days=" + days + ", StartTime=" + startTime + ", Semester=" + semester
 				+ ", studentsRegistered=" + studentsRegistered + ", availableSeats=" + availableSeats + ", URL=" + URL
-				+ ", prerequisiteCourseIDs=" + prerequisiteCourseIDs + ", getCourseID()=" + getCourseID()
-				+ ", getSection()=" + getSection() + ", getCourseName()=" + getCourseName() + ", getRoom()=" + getRoom()
-				+ ", getDays()=" + getDays() + ", getStartTime()=" + getStartTime() + ", getSemester()=" + getSemester()
-				+ ", getStudentsRegistered()=" + getStudentsRegistered() + ", getAvailableSeats()="
-				+ getAvailableSeats() + ", getURL()=" + getURL() + ", getPrerequisiteCourseIDs()="
-				+ getPrerequisiteCourseIDs() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode()
-				+ ", toString()=" + super.toString() + "]";
+				+ ", prerequisiteCourseIDs=" + prerequisiteCourseIDs + "]" + "\n";
 	}
 
     public String printInfo(){
@@ -60,6 +67,10 @@ public class StorageCourse {
 
 	public void setCourseID(String courseID) {
         this.courseID = courseID;
+    }
+
+    public String getCourseID() {
+        return courseID;
     }
 
     public String getSection() {

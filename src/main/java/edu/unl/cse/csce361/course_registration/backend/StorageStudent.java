@@ -4,11 +4,12 @@ import java.util.ArrayList;
 
 public class StorageStudent {
  
-	public String name;
+	private String name;
 	//public String email;
-	public String major;
-	public ArrayList<String> registeredCoursesID;
-	public ArrayList<String> completedCoursesID;
+	private String major;
+	private ArrayList<String> registeredCoursesID;
+	private ArrayList<String> completedCoursesID;
+
 	public String getName() {
 		return name;
 	}
@@ -44,16 +45,16 @@ public class StorageStudent {
 	}
 
 	public StorageStudent(){
-		//blank student constructor
+		this.name = "";
+		this.major = "";
+		this.registeredCoursesID = new ArrayList<>();
+		this.completedCoursesID = new ArrayList<>();
 	}
 
 	@Override
 	public String toString() {
-		return "StorageStudent [name=" + name + ", major=" + major + ", registeredCousrsesID=" + registeredCoursesID
-				+ ", completedCoursesID=" + completedCoursesID + ", getName()=" + getName() + ", getMajor()="
-				+ getMajor() + ", getRegisteredCousrsesID()=" + getRegisteredCoursesID() + ", getCompletedCoursesID()="
-				+ getCompletedCoursesID() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode()
-				+ ", toString()=" + super.toString() + "]";
+		return "StorageStudent [name=" + this.getName() + ", major=" + this.getMajor() + ", registeredCousrsesID=" + this.getRegisteredCoursesID()
+				+ ", completedCoursesID=" + this.getCompletedCoursesID() + "]" + "\n";
 	}
 
 	public static StorageStudent getStudentWithName(ArrayList<StorageStudent> students, String name){
