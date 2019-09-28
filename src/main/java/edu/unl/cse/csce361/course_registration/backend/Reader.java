@@ -28,27 +28,27 @@ public class Reader {
     		   registeredCourses.add(rcourse2);
     	   }
     	   String rcourse3 = s.get("RegisteredCourse3");
-    	   if(rcourse3 != null) {
+    	   if(rcourse3 != null && rcourse3.length() >1) {
     		   registeredCourses.add(rcourse3);
     	   }
     	   String rcourse4 = s.get("RegisteredCourse4");
-    	   if(rcourse4 != null) {
+    	   if(rcourse4 != null && rcourse4.length() > 1) {
     		   registeredCourses.add(rcourse4);
     	   }
     	   String rcourse5 = s.get("RegisteredCourse5");
-    	   if(rcourse5 != null) {
+    	   if(rcourse5 != null  && rcourse5.length() > 1) {
     		   registeredCourses.add(rcourse5);
     	   }
     	   String rcourse6 = s.get("RegisteredCourse6");
-    	   if(rcourse6 != null) {
+    	   if(rcourse6 != null  && rcourse6.length() > 1) {
     		   registeredCourses.add(rcourse6);
     	   }
     	   String rcourse7 = s.get("RegisteredCourse7");
-    	   if(rcourse7 != null) {
+    	   if(rcourse7 != null  && rcourse7.length() > 1) {
     		   registeredCourses.add(rcourse7);
     	   }
     	   String rcourse8 = s.get("RegisteredCourse8");
-    	   if(rcourse8 != null) {
+    	   if(rcourse8 != null && rcourse8.length() > 1) {
     		   registeredCourses.add(rcourse8);
     	   } 
     	   String completedCourse1 = s.get("CompletedCourse1");
@@ -181,13 +181,22 @@ public class Reader {
 			courses.setStartTime(StartTime);
 			String Semester = s.get("Semester");
 			courses.setSemester(Semester);
-			int studentsRegistered = Integer.parseInt(s.get("NumberOfStudentsRegistered"));
-			
-			courses.setStudentsRegistered(studentsRegistered);
-		  
-		int availableSeats = Integer.parseInt(s.get("NumberOfAvailableSeats"));
+			String studentsReg = s.get("NumberOfStudentsRegistered");
+		     if( studentsReg != null && studentsReg.length() >0) {
+		       int studentsRegistered = Integer.parseInt(studentsReg);
+				 courses.setStudentsRegistered(studentsRegistered);	
+		     }
+		     else {
+		    	 courses.setAvailableSeats(0);
+		     }
+			String availableS = s.get("NumberOfAvailableSeats");
+     if( availableS != null && availableS.length() >0) {
+       int availableSeats = Integer.parseInt(availableS);
 		 courses.setAvailableSeats(availableSeats);	
-		  
+     }
+     else {
+    	 courses.setAvailableSeats(0);
+     }
 			String URL = s.get("URL");
 			if(URL != null) {
 				courses.setURL(URL);
@@ -208,15 +217,21 @@ public class Reader {
            
 		return arrCourses;
 	}
+/*	
 	public static void main(String[]args) {
 
-		StorageStudent student = new StorageStudent();
-//		studentReader(student);
-		StorageCourse courses = new StorageCourse();
+		StorageStudent stu = new StorageStudent();
+  ArrayList<StorageStudent> student = new ArrayList<StorageStudent>();
+  Reader r = new Reader();
+  student = r.studentReader(stu);
+	
+		
 	//	courseReader(courses);
-		System.out.println(studentReader(student));
-		System.out.println(courseReader(courses));
+		for(int i = 0 ; i< student.size() ; i++) {
+			System.out.println( student.get(i).getName() +"  Reg : - "+ student.get(i).getRegisteredCousrsesID() +" size "+ student.get(i).getRegisteredCousrsesID() .size());
+		}
+	
 	
 	}
-
+*/
 }
