@@ -8,7 +8,7 @@ import java.util.Set;
 
 public class Writer {
 
-    public boolean writeStudent(ArrayList<StorageStudent> students, String filename){
+    public static boolean studentWriter(ArrayList<StorageStudent> students, String filename){
         Set<Map<String, String>> data = null;
         for(StorageStudent student : students){
             Map<String,String> studentMap = null;
@@ -33,7 +33,7 @@ public class Writer {
         return success;
     }
 
-    public  boolean writeCourse(ArrayList<StorageCourse> courses, String filename){
+    public static boolean courseWriter(ArrayList<StorageCourse> courses, String filename){
         Set<Map<String, String>> data = null;
         for(StorageCourse course : courses){
             Map<String,String> courseMap = null;
