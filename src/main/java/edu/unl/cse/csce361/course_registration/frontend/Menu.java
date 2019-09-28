@@ -37,8 +37,8 @@ public class Menu {
 //			System.out.printf("\nRegistered Courses:");
 //			System.out.printf("\n%s  %s  %s  %s  %s  %s  %s  %s  %s  %s  %s  %s  ","CourseID", "Section", "CourseName","Room","Days","StartTime","Semester","NumberOfStudentsRegistered","NumberOfAvailableSeats","URL","Prerequisite1","Prerequisite2");  
 	
-			System.out.println(student.get(i).getRegisteredCousrsesID().size());
-		 for(int s = 0; s < student.get(i).getRegisteredCousrsesID().size(); s++) {
+			System.out.println(student.get(i).getRegisteredCoursesID().size());
+		 for(int s = 0; s < student.get(i).getRegisteredCoursesID().size(); s++) {
 		   index++;
 			 
 		 }
