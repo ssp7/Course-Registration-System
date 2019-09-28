@@ -3,10 +3,6 @@ import java.util.ArrayList;
 import java.util.Map;
 import java.util.Set;
 
-import edu.unl.cse.csce361.course_registration.backend.CSVReaderWriter;
-import edu.unl.cse.csce361.course_registration.backend.StorageCourse;
-import edu.unl.cse.csce361.course_registration.backend.StorageStudent;
-
 public class Reader {
 
 	public static ArrayList<StorageStudent> studentReader(StorageStudent student) {
@@ -157,7 +153,7 @@ public class Reader {
 																	completedCourses.add(completedCourse25);
 																}
 																stu.setCompletedCoursesID(completedCourses);
-																stu.setRegisteredCousrsesID(registeredCourses);
+																stu.setRegisteredCoursesID(registeredCourses);
 																
 			students.add(stu);
 

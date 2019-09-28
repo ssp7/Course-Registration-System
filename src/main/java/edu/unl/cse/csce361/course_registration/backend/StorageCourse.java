@@ -142,13 +142,13 @@ public class StorageCourse {
         this.prerequisiteCourseIDs = prerequisiteCourseIDs;
     }
 
-    public static StorageCourse getCourseFromID(ArrayList<StorageCourse> courses, String courseID){
+    public static StorageCourse getCourseWithID(ArrayList<StorageCourse> courses, String courseID){
         StorageCourse requestedCourse = null;
         StorageCourse candidateCourse;
         int counter = 0;
         while((requestedCourse == null) && counter < courses.size()){
             candidateCourse = courses.get(counter);
-            if(candidateCourse.getCourseID() == courseID){
+            if(candidateCourse.getCourseID().equals(courseID)){
                 requestedCourse = candidateCourse;
             }
         }
