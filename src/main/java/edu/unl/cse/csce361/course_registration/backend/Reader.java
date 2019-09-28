@@ -20,8 +20,8 @@ public class Reader {
 			student.setMajor(major);
 			ArrayList<String> registeredCourses = new ArrayList<String>();
 			ArrayList<String> completedCourses = new ArrayList<String>();
+
 			String rcourse1 = studentData.get("RegisteredCourse1");
-		
     	   if(rcourse1.length() > 0 && rcourse1 != null) {
     		   registeredCourses.add(rcourse1);
     	   }
@@ -52,111 +52,20 @@ public class Reader {
     	   String rcourse8 = studentData.get("RegisteredCourse8");
     	   if(rcourse8 != null && rcourse8.length() > 1) {
     		   registeredCourses.add(rcourse8);
-    	   } 
-    	   String completedCourse1 = studentData.get("CompletedCourse1");
-			if(completedCourse1 != null) {
-				completedCourses.add(completedCourse1);
-			}
-			 String completedCourse2 = studentData.get("CompletedCourse2");
-				if(completedCourse2 != null) {
-					completedCourses.add(completedCourse2);
-				}
-				 String completedCourse3 = studentData.get("CompletedCourse3");
-					if(completedCourse3 != null) {
-						completedCourses.add(completedCourse3);
-					}
-					 String completedCourse4 = studentData.get("CompletedCourse4");
-						if(completedCourse4 != null) {
-							completedCourses.add(completedCourse4);
-						}
-						 String completedCourse5 = studentData.get("CompletedCourse5");
-							if(completedCourse5 != null) {
-								completedCourses.add(completedCourse5);
-							}
-							String completedCourse6 = studentData.get("CompletedCourse6");
-							if(completedCourse6 != null) {
-								completedCourses.add(completedCourse5);
-							}
-							 String completedCourse7 = studentData.get("CompletedCourse7");
-								if(completedCourse7 != null) {
-									completedCourses.add(completedCourse7);
-								}
-							
-								 String completedCourse8 = studentData.get("CompletedCourse8");
-									if(completedCourse8 != null) {
-										completedCourses.add(completedCourse8);
-									}
-									 String completedCourse9 = studentData.get("CompletedCourse9");
-										if(completedCourse9 != null) {
-											completedCourses.add(completedCourse9);
-										}
-										 String completedCourse10 = studentData.get("CompletedCourse10");
-											if(completedCourse10 != null) {
-												completedCourses.add(completedCourse10);
-											}
-											 String completedCourse11 = studentData.get("CompletedCourse11");
-												if(completedCourse11 != null) {
-													completedCourses.add(completedCourse11);
-												}
-												 String completedCourse12 = studentData.get("CompletedCourse12");
-													if(completedCourse12 != null) {
-														completedCourses.add(completedCourse12);
-													}
-													 String completedCourse13 = studentData.get("CompletedCourse13");
-														if(completedCourse13 != null) {
-															completedCourses.add(completedCourse13);
-														}
-														 String completedCourse14 = studentData.get("CompletedCourse14");
-															if(completedCourse14 != null) {
-																completedCourses.add(completedCourse14);
-															}
-															 String completedCourse15 = studentData.get("CompletedCourse15");
-																if(completedCourse15 != null) {
-																	completedCourses.add(completedCourse15);
-																}
-																String completedCourse16 = studentData.get("CompletedCourse16");
-																if(completedCourse16 != null) {
-																	completedCourses.add(completedCourse16);
-																}
-																String completedCourse17 = studentData.get("CompletedCourse17");
-																if(completedCourse17 != null) {
-																	completedCourses.add(completedCourse17);
-																}
-																String completedCourse18 = studentData.get("CompletedCourse18");
-																if(completedCourse18 != null) {
-																	completedCourses.add(completedCourse18);
-																}
-																String completedCourse19 = studentData.get("CompletedCourse19");
-																if(completedCourse19 != null) {
-																	completedCourses.add(completedCourse19);
-																}
-																String completedCourse20 = studentData.get("CompletedCourse20");
-																if(completedCourse20 != null) {
-																	completedCourses.add(completedCourse20);
-																}
-																String completedCourse21 = studentData.get("CompletedCourse21");
-																if(completedCourse21 != null) {
-																	completedCourses.add(completedCourse21);
-																}
-																String completedCourse22 = studentData.get("CompletedCourse22");
-																if(completedCourse22 != null) {
-																	completedCourses.add(completedCourse22);
-																}
-																String completedCourse23 = studentData.get("CompletedCourse23");
-																if(completedCourse23 != null) {
-																	completedCourses.add(completedCourse23);
-																}
-																String completedCourse24 = studentData.get("CompletedCourse24");
-																if(completedCourse24 != null) {
-																	completedCourses.add(completedCourse24);
-																}
-																String completedCourse25 = studentData.get("CompletedCourse25");
-																if(completedCourse25 != null) {
-																	completedCourses.add(completedCourse25);
-																}
-																student.setCompletedCoursesID(completedCourses);
-																student.setRegisteredCoursesID(registeredCourses);
-																
+    	   }
+
+            int numCompleted = 1;
+            for(int i = 0; i < 25; i++){
+                String completedCourse = studentData.get("CompletedCourse"+numCompleted);
+                //System.out.println(completedCourse);
+                if(completedCourse != null && completedCourse.length() > 1){
+                    System.out.println(completedCourse);
+                    completedCourses.add(completedCourse);
+                }
+                numCompleted++;
+            }
+            student.setCompletedCoursesID(completedCourses);
+            student.setRegisteredCoursesID(registeredCourses);
 			students.add(student);
 
 		}
@@ -206,11 +115,11 @@ public class Reader {
 			}
            ArrayList<String> preReq = new ArrayList<String>();
 		 String prerequisite1 = courseData.get("Prerequisite1");
-		 if(prerequisite1 != null) {
+		 if(prerequisite1 != null && prerequisite1.length() > 1) {
 			 preReq.add(prerequisite1);
 		 }
 		 String prerequisite2 = courseData.get("Prerequisite2");
-		 if(prerequisite2 != null) {
+		 if(prerequisite2 != null && prerequisite2.length() > 1) {
 			 preReq.add(prerequisite2);
 		 }
 		 course.setPrerequisiteCourseIDs(preReq);
@@ -221,21 +130,21 @@ public class Reader {
 		return arrCourses;
 	}
 
-	public static void main(String[]args) {
-		ArrayList<StorageStudent> students = studentReader("students.csv");
-		System.out.println(students);
-
-		ArrayList<StorageCourse> courses = courseReader("courses.csv");
-		System.out.println(courses);
-
-
-
-//	//	courseReader(courses);
-//		for(int i = 0 ; i< student.size() ; i++) {
-//			System.out.println( student.get(i).getName() +"  Reg : - "+ student.get(i).getRegisteredCousrsesID() +" size "+ student.get(i).getRegisteredCousrsesID() .size());
-//		}
+//	public static void main(String[]args) {
+//		ArrayList<StorageStudent> students = studentReader("students.csv");
+//		System.out.println(students);
 //
-
-	}
+//		ArrayList<StorageCourse> courses = courseReader("courses.csv");
+//		System.out.println(courses);
+//
+//
+//
+////	//	courseReader(courses);
+////		for(int i = 0 ; i< student.size() ; i++) {
+////			System.out.println( student.get(i).getName() +"  Reg : - "+ student.get(i).getRegisteredCousrsesID() +" size "+ student.get(i).getRegisteredCousrsesID() .size());
+////		}
+////
+//
+//	}
 
 }
