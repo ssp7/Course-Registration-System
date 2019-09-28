@@ -211,7 +211,7 @@ public class Reader {
 		 }
 		 String prerequisite2 = courseData.get("Prerequisite2");
 		 if(prerequisite2 != null) {
-			 preReq.add(prerequisite1);
+			 preReq.add(prerequisite2);
 		 }
 		 course.setPrerequisiteCourseIDs(preReq);
 	arrCourses.add(course);
