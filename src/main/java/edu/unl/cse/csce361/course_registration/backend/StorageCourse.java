@@ -154,7 +154,7 @@ public class StorageCourse {
     }
 
     public void setMeetingTime(){
-        if(this.days == "MONDAY"){
+        if(this.days.equals("MONDAY")){
             switch (this.startTime){
                 case "0830":
                     this.meetingTime = MeetingTime.MONDAY0830;
@@ -185,7 +185,7 @@ public class StorageCourse {
                 default:
                     this.meetingTime = null;
             }
-        }else if(this.days == "TUESDAY"){
+        }else if(this.days.equals("TUESDAY")){
             switch (this.startTime){
                 case "0800":
                     this.meetingTime = MeetingTime.TUESDAY0800;
@@ -213,15 +213,16 @@ public class StorageCourse {
         }
     }
 
-    public static StorageCourse getCourseWithID(ArrayList<StorageCourse> courses, String courseID){
+    public static StorageCourse getCourseWithID(ArrayList<StorageCourse> courses, String courseID, String section){
         StorageCourse requestedCourse = null;
         StorageCourse candidateCourse;
         int counter = 0;
         while((requestedCourse == null) && counter < courses.size()){
             candidateCourse = courses.get(counter);
-            if(candidateCourse.getCourseID().equals(courseID)){
+            if(candidateCourse.getCourseID().equals(courseID) && candidateCourse.getSection().equals(section)){
                 requestedCourse = candidateCourse;
             }
+            counter++;
         }
 
         return requestedCourse;
