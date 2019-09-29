@@ -5,6 +5,8 @@ import java.util.ArrayList;
 public class StorageStudent {
  
 	private String name;
+
+
 	//public String email;
 	private String major;
    

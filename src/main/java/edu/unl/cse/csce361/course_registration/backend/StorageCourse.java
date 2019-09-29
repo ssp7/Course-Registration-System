@@ -154,7 +154,11 @@ public class StorageCourse {
     }
 
     public void setMeetingTime(){
-        if(this.days.equals("MONDAY")){
+    	if(this.getSection().equals("ONLINE")) {
+    		this.meetingTime = MeetingTime.ONLINE;
+    	}
+    	else {
+        if( this.days!= null && this.days.equals("MONDAY") && this.days.length() > 0){
             switch (this.startTime){
                 case "0830":
                     this.meetingTime = MeetingTime.MONDAY0830;
@@ -185,7 +189,7 @@ public class StorageCourse {
                 default:
                     this.meetingTime = null;
             }
-        }else if(this.days.equals("TUESDAY")){
+        }else if(this.days != null && this.days.equals("TUESDAY") && this.days.length() > 0){
             switch (this.startTime){
                 case "0800":
                     this.meetingTime = MeetingTime.TUESDAY0800;
@@ -207,10 +211,12 @@ public class StorageCourse {
                     break;
                 case "1700":
                     this.meetingTime = MeetingTime.TUESDAY1700;
+                    break;
             }
         }else{
-            this.meetingTime = null;
+            this.meetingTime = MeetingTime.ONLINE;
         }
+    	}
     }
 
     public static StorageCourse getCourseWithID(ArrayList<StorageCourse> courses, String courseID, String section){
@@ -227,4 +233,11 @@ public class StorageCourse {
 
         return requestedCourse;
     }
+    
+    public static void main(String[]args) {
+    	ArrayList<StorageCourse> coursesAll = new ArrayList<StorageCourse>();
+    	coursesAll = Reader.courseReader("courses.csv");
+    }
 }
+
+

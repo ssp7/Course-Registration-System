@@ -97,9 +97,10 @@ public class CSVReaderWriter {
 
 
     public static void main(String[] args) {
-        Set<Map<String, String>> demo = readCSV(".csv");
+        Set<Map<String, String>> demo = readCSV("courses.csv");
         boolean success = writeCSV("out.csv", demo);
         System.out.println(success ? "Wrote file!" : "Didn't write file");
+        System.out.println(demo);
     }
 
 }

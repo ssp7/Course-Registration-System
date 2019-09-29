@@ -16,5 +16,7 @@ public enum MeetingTime {
     TUESDAY1230,
     TUESDAY1400,
     TUESDAY1530,
-    TUESDAY1700;
+    TUESDAY1700,
+    ONLINE;
+	
 }

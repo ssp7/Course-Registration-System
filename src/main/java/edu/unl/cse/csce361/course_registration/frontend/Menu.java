@@ -34,17 +34,18 @@ public class Menu {
 
 			print.studentPrinter();
 			System.out.println("Please enter the number who's data you need to modify");
-
+			String studentName = scanName.nextLine();
+			print.printByName(studentName);
+ 
 
 		}
 
 		else {
 
-
+           StorageStudent studentByName = new StorageStudent();
 			System.out.println("Please enter your name");
 			String name = scanName.nextLine();
-			stu.getStudentWithName(student, name);
-
+		    print.printByName(name);
 			scan.close();
 		}
 	}

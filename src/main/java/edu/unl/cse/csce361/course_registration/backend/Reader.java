@@ -15,7 +15,8 @@ public class Reader {
 		for(Map<String, String> studentData : mapData) {
 
 			StorageStudent student = new StorageStudent();
-			student.setName(studentData.get("Name"));
+			
+			student.setName(studentData.get("﻿Name"));
 			String major = studentData.get("Major");
 			student.setMajor(major);
 			ArrayList<String> registeredCourses = new ArrayList<String>();
@@ -23,11 +24,11 @@ public class Reader {
 			ArrayList<String> completedCourses = new ArrayList<String>();
 
 			String rcourse1 = studentData.get("RegisteredCourse1");
-    	   if(rcourse1.length() > 0 && rcourse1 != null) {
+    	   if(rcourse1.length() > 1 && rcourse1 != null) {
     		   registeredCourses.add(rcourse1);
     	   }
     	   String rcourse2 = studentData.get("RegisteredCourse2");
-    	   if(rcourse2.length() > 0 && rcourse2 != null) {
+    	   if(rcourse2.length() > 1 && rcourse2 != null) {
     		   registeredCourses.add(rcourse2);
     	   }
     	   String rcourse3 = studentData.get("RegisteredCourse3");
@@ -55,12 +56,36 @@ public class Reader {
     		   registeredCourses.add(rcourse8);
     	   }
     	   String rcourseSection1 = studentData.get("RegisteredCourseSection1");
-    	   if(rcourseSection1 != null && rcourseSection1.length() > 1) {
+    	   if(rcourseSection1 != null && rcourseSection1.length() >0) {
     		   registeredCoursesSections.add(rcourseSection1);
     	   }
     	   String rcourseSection2 = studentData.get("RegisteredCourseSection2");
-    	   if(rcourseSection2 != null && rcourseSection2.length() > 1) {
+    	   if(rcourseSection2 != null && rcourseSection2.length() > 0) {
     		   registeredCoursesSections.add(rcourseSection2);   
+    	   }
+    	   String rcourseSection3 = studentData.get("RegisteredCourseSection3");
+    	   if(rcourseSection3 != null && rcourseSection3.length() >0) {
+    		   registeredCoursesSections.add(rcourseSection3);
+    	   }
+    	   String rcourseSection4 = studentData.get("RegisteredCourseSection4");
+    	   if(rcourseSection4 != null && rcourseSection4.length() >0) {
+    		   registeredCoursesSections.add(rcourseSection4);   
+    	   }
+    	   String rcourseSection5 = studentData.get("RegisteredCourseSection5");
+    	   if(rcourseSection5 != null && rcourseSection5.length() >0) {
+    		   registeredCoursesSections.add(rcourseSection5);
+    	   }
+    	   String rcourseSection8 = studentData.get("RegisteredCourseSection8");
+    	   if(rcourseSection8 != null && rcourseSection8.length() >0) {
+    		   registeredCoursesSections.add(rcourseSection8);   
+    	   }
+    	   String rcourseSection6 = studentData.get("RegisteredCourseSection6");
+    	   if(rcourseSection6 != null && rcourseSection6.length() >0) {
+    		   registeredCoursesSections.add(rcourseSection6);
+    	   }
+    	   String rcourseSection7 = studentData.get("RegisteredCourseSection7");
+    	   if(rcourseSection7 != null && rcourseSection7.length() >0) {
+    		   registeredCoursesSections.add(rcourseSection7);   
     	   }
             int numCompleted = 1;
             for(int i = 0; i < 25; i++){
@@ -73,6 +98,7 @@ public class Reader {
             }
             student.setCompletedCoursesID(completedCourses);
             student.setRegisteredCoursesID(registeredCourses);
+            student.setRegisteredCoursesSections(registeredCoursesSections);
 			students.add(student);
 
 		}
@@ -85,7 +111,7 @@ public class Reader {
 		Set<Map<String, String>> mapData = CSVReaderWriter.readCSV(filename);
 		for(Map<String, String> courseData : mapData) {
 			StorageCourse course = new StorageCourse();
-			String courseID = courseData.get("CourseID");
+			String courseID = courseData.get("﻿CourseID");
 			course.setCourseID(courseID);
 			String section = courseData.get("Section");
 			course.setSection(section);
@@ -137,21 +163,16 @@ public class Reader {
 		return arrCourses;
 	}
 
-//	public static void main(String[]args) {
-//		ArrayList<StorageStudent> students = studentReader("students.csv");
-//		System.out.println(students);
-//
-//		ArrayList<StorageCourse> courses = courseReader("courses.csv");
-//		System.out.println(courses);
-//
-//
-//
-////	//	courseReader(courses);
-////		for(int i = 0 ; i< student.size() ; i++) {
-////			System.out.println( student.get(i).getName() +"  Reg : - "+ student.get(i).getRegisteredCousrsesID() +" size "+ student.get(i).getRegisteredCousrsesID() .size());
-////		}
-////
-//
-//	}
+public static void main(String[]args) {
+	ArrayList<StorageStudent> students = studentReader("students.csv");
+	System.out.println(students);
+
+//	ArrayList<StorageCourse> courses = courseReader("courses.csv");
+//	System.out.println(courses);
+
+
+
+
+	}
 
 }
