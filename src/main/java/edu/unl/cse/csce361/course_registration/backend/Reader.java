@@ -59,7 +59,6 @@ public class Reader {
                 String completedCourse = studentData.get("CompletedCourse"+numCompleted);
                 //System.out.println(completedCourse);
                 if(completedCourse != null && completedCourse.length() > 1){
-                    System.out.println(completedCourse);
                     completedCourses.add(completedCourse);
                 }
                 numCompleted++;
