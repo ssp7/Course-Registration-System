@@ -19,6 +19,7 @@ public class Reader {
 			String major = studentData.get("Major");
 			student.setMajor(major);
 			ArrayList<String> registeredCourses = new ArrayList<String>();
+			ArrayList<String> registeredCoursesSections = new ArrayList<String>();
 			ArrayList<String> completedCourses = new ArrayList<String>();
 
 			String rcourse1 = studentData.get("RegisteredCourse1");
@@ -53,7 +54,14 @@ public class Reader {
     	   if(rcourse8 != null && rcourse8.length() > 1) {
     		   registeredCourses.add(rcourse8);
     	   }
-
+    	   String rcourseSection1 = studentData.get("RegisteredCourseSection1");
+    	   if(rcourseSection1 != null && rcourseSection1.length() > 1) {
+    		   registeredCoursesSections.add(rcourseSection1);
+    	   }
+    	   String rcourseSection2 = studentData.get("RegisteredCourseSection2");
+    	   if(rcourseSection2 != null && rcourseSection2.length() > 1) {
+    		   registeredCoursesSections.add(rcourseSection2);   
+    	   }
             int numCompleted = 1;
             for(int i = 0; i < 25; i++){
                 String completedCourse = studentData.get("CompletedCourse"+numCompleted);

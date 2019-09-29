@@ -49,8 +49,10 @@ public class Printer {
 	
 	if(student.get(i-1).getRegisteredCoursesID() != null) {
 		 for(int s = 1; s <= student.get(i-1).getRegisteredCoursesID().size(); s++) {
-			    cour.getCourseWithID(courses, student.get(i-1).getRegisteredCoursesID().get(s-1));
-		 }
+			 //yet to be implemented
+		//	cour.getCourseWithID(courses , student.get(i-1).getRegisteredCoursesID().get(s-1),student.get(i-1),);
+			
+		 } 
 		
 	}
       }

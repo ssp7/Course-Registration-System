@@ -7,7 +7,16 @@ public class StorageStudent {
 	private String name;
 	//public String email;
 	private String major;
+   
 	private ArrayList<String> registeredCoursesID;
+	private ArrayList<String> registeredCoursesSections;
+	public ArrayList<String> getRegisteredCoursesSections() {
+		return registeredCoursesSections;
+	}
+	public void setRegisteredCoursesSections(ArrayList<String> registeredCoursesSections) {
+		this.registeredCoursesSections = registeredCoursesSections;
+	}
+
 	private ArrayList<String> completedCoursesID;
 
 	public String getName() {
