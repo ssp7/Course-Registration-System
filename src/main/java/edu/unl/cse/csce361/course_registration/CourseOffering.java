@@ -5,6 +5,6 @@ public interface CourseOffering {
     String getCourseName();
     int getSemester();
     int getNumberOfStudentsRegistered();
-    void addStudent(Student student);
-    void removeStudent(Student student);
+    void addStudent();
+    void removeStudent();
 }
