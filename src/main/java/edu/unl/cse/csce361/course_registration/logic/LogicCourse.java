@@ -11,13 +11,13 @@ import java.util.ArrayList;
 
 public class LogicCourse implements CourseOffering {
     private String courseID;
+    private String section;
     private ArrayList<StorageCourse> courseList;
-    private ArrayList<StorageStudent> studentList;
 
-    public LogicCourse(String courseID) {
+    public LogicCourse(String courseID, String section) {
         this.courseID = courseID;
+        this.section = section;
         this.courseList = BackendFacade.readCourses();
-        this.studentList = BackendFacade.readStudents();
     }
 
     @Override
@@ -27,54 +27,70 @@ public class LogicCourse implements CourseOffering {
 
     @Override
     public String getCourseName() {
-        return StorageCourse.getCourseWithID(courseList, courseID).getCourseName();
+        return StorageCourse.getCourseWithID(courseList, courseID,section).getCourseName();
     }
 
     @Override
     public int getSemester() {
-        return  Integer.parseInt(StorageCourse.getCourseWithID(courseList, courseID).getSemester());
+        return  Integer.parseInt(StorageCourse.getCourseWithID(courseList, courseID,section).getSemester());
     }
 
     @Override
     public int getNumberOfStudentsRegistered() {
-        return StorageCourse.getCourseWithID(courseList, courseID).getStudentsRegistered();
+        return StorageCourse.getCourseWithID(courseList, courseID,section).getStudentsRegistered();
     }
 
     private void updateCourseList(){
         this.courseList = BackendFacade.readCourses();
     }
 
-
+    /**
+     * Increment students registered, decrease available seats for classroom courses.
+     * @return true if success, false if no seats available
+     */
     @Override
-    public void addStudent() {
-        StorageCourse course = StorageCourse.getCourseWithID(courseList, courseID);
+    public boolean addStudent() {
+        boolean success = false;
+        boolean isOnline = this.section.equals("ONLINE");
+        StorageCourse course = StorageCourse.getCourseWithID(courseList, courseID,section);
         int numStudents = course.getStudentsRegistered();
-        if(course.getSection() != "ONLINE") {
+        if(!isOnline) {
             int seatsAvailable = course.getAvailableSeats();
             if (seatsAvailable != 0) {
                 course.setStudentsRegistered(numStudents++);
                 seatsAvailable--;
                 course.setAvailableSeats(seatsAvailable);
+                success = true;
             }
-        } else if(course.getSection() == "ONLINE"){
+        } else if(isOnline){
             course.setStudentsRegistered(numStudents++);
         }
-        BackendFacade.writeCourses(courseList);
+        if(success){
+            BackendFacade.writeCourses(courseList);
+        }
+        return success;
     }
 
+    /**
+     * Decrease students registered, increase available seats for classroom courses.
+     * @return true if success, false if empty
+     */
     @Override
-    public void removeStudent() {
-        StorageCourse course = StorageCourse.getCourseWithID(courseList, courseID);
+    public boolean removeStudent() {
+        boolean success = false;
+        StorageCourse course = StorageCourse.getCourseWithID(courseList, courseID,section);
         int studentsRegistered = course.getStudentsRegistered();
-        if(studentsRegistered !=0){
+        if(studentsRegistered !=0){ //classroom and online course
             course.setStudentsRegistered(studentsRegistered--);
+            success = true;
         }
 
-        if(course.getSection() != "ONLINE"){
+        if(!this.section.equals("ONLINE")){ //classroom course only
             int seatsAvailable = course.getAvailableSeats();
             seatsAvailable++;
             course.setAvailableSeats(seatsAvailable);
         }
         BackendFacade.writeCourses(courseList);
+        return success;
     }
 }
