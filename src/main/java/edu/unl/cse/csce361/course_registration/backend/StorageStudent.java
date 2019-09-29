@@ -66,6 +66,7 @@ public class StorageStudent {
 			if(candidateStudent.getName().equals(name)){
 				requestedStudent = candidateStudent;
 			}
+			counter++;
 		}
 		return requestedStudent;
 	}
