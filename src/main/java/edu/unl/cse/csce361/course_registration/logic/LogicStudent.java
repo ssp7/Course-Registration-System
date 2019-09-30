@@ -34,7 +34,7 @@ public class LogicStudent implements Student {
     }
 
     public static boolean isCourseValid(String courseID){
-        private ArrayList<StorageCourse> courseList = BackendFacade.readCourses();
+        ArrayList<StorageCourse> courseList = BackendFacade.readCourses();
         boolean valid = false;
         int index = 0;
         while(index < courseList.size() && valid == false){
@@ -48,7 +48,7 @@ public class LogicStudent implements Student {
     }
 
     public static boolean isSectionValid(String courseID, String section){
-        private ArrayList<StorageCourse> courseList = BackendFacade.readCourses();
+        ArrayList<StorageCourse> courseList = BackendFacade.readCourses();
         boolean valid = false;
         int index = 0;
         while(index < courseList.size() && valid == false){
@@ -59,6 +59,7 @@ public class LogicStudent implements Student {
             }
             index++;
         }
+		return valid;
     }
 
 

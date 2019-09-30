@@ -1,5 +1,7 @@
 package edu.unl.cse.csce361.course_registration.logic;
 
+import edu.unl.cse.csce361.course_registration.backend.BackendFacade;
+
 public class LogicFacade {
     
     private LogicFacade(){
@@ -15,7 +17,7 @@ public class LogicFacade {
     }
 
     public static boolean isSectionValid(String courseID, String section){
-        return LogicStudent.isSectionValid(String courseID, String section);
+        return LogicStudent.isSectionValid(courseID, section);
     }
 
     public static void enrollStudentInCourse(String studentName, int maxEnrollment, String courseID, String section){
@@ -34,7 +36,7 @@ public class LogicFacade {
     }
 
     public static void printStudentList(){
-        BackendFacade.printStudentList()
+        BackendFacade.printStudentList();
     }
 
     public static void printStudentByName(String studentName){
