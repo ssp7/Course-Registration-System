@@ -42,6 +42,7 @@ public class LogicStudent implements Student {
 
     @Override
     public boolean hasScheduleConflict(MeetingTime meetingTime) {
+
         return false;
     }
 }

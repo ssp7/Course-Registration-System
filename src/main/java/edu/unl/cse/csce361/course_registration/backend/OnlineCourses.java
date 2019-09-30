@@ -71,9 +71,12 @@ public class OnlineCourses extends StorageCourse {
 	@Override
 	public void printInfo() {
 		// TODO Auto-generated method stub
-	    	String printOnlineCourse = getCourseID() +"    " + getCourseName()+ "     "+ getSection() +"    " + getURL();
-	
-	}	
+
+		String printOnlineCourse = getCourseID() +"         " + getCourseName()+ "         "+ getSemester()+"         "+getSection() +"         " + getURL();
+		System.out.println(printOnlineCourse);
+
+	}
+
 	public static void main(String[]args) {
 	
       ArrayList<StorageCourse> course = new ArrayList<StorageCourse>();
