@@ -12,14 +12,13 @@ public class Printer {
 		OnlineCourses online = new OnlineCourses();
 		ArrayList<StorageCourse> c = Reader.courseReader("courses.csv");
 		System.out.println("Here are courses and its information");
-		System.out.printf("\n%s  %15s %25s %15s  %10s    %10s    %10s  %15s  %15s  %21s  %25s  ","CourseID", "Section", "CourseName","Room","Days","StartTime","Semester","NumberOfStudentsRegistered","NumberOfAvailableSeats","URL","Prerequisites");
+	System.out.printf("\n%s%30s%20s%20s%17s%22s%30s%25s%30s","CourseID", "CourseName","Semester","Section","Room","MeetingTime","NumberOfStudentsRegistered","NumberOfAvailableSeats","URL");  
 
+		
 		for(int i = 1; i<= c.size() ; i++) {
 			if(c.get(i-1) instanceof OnlineCourses ) {
 				c.get(i-1).printInfo();
-				System.out.printf("\n%s  %15s %25s %15s","CourseID", "CourseName", "Semester","URL");
-				System.out.printf("\n%s%s%s%s", c.get(i-1).getCourseID(),c.get(i-1).getCourseName(),c.get(i-1).getSemester(),  ((OnlineCourses) c.get(i-1)).getURL());
-
+	
 
 			}
 

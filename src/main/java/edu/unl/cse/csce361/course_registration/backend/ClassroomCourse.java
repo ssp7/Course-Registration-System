@@ -48,12 +48,13 @@ public class ClassroomCourse extends StorageCourse{
 	public void printInfo() {
 		// TODO Auto-generated method stub
 		if(this.courseID.equals("CSCE10")) {
-			System.out.println(this.courseID+ "          " +this.courseName+"          "+this.semester+"         "+this.section+"         "+this.room+"         "+this.meetingTime+"         "+this.studentsRegistered+"         "+this.availableSeats);
+
+			 System.out.printf("\n%s%30s%21s%20s%20s%20s%20d%20d",getCourseID(),getCourseName(),getSemester(),getSection(),getRoom(),getMeetingTime(),getStudentsRegistered(),getAvailableSeats());
+				
 		}
 		else {
-			System.out.println(this.courseID+ "         " +this.courseName+"         "+this.semester+"         "+this.section+"         "+this.room+"         "+this.meetingTime+"         "+this.studentsRegistered+"         "+this.availableSeats);
-		}
-
+			 System.out.printf("\n%s%30s%20s%20s%20s%20s%20d%20d",getCourseID(),getCourseName(),getSemester(),getSection(),getRoom(),getMeetingTime(),getStudentsRegistered(),getAvailableSeats());
+				}
 	}
 	
 	 public void setMeetingTime(){
