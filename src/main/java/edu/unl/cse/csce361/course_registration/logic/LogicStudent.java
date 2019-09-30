@@ -113,6 +113,7 @@ public class LogicStudent implements Student {
                     hasConflict = true;
                 }
             }
+            index++;
         }
         return hasConflict;
     }
