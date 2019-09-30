@@ -18,7 +18,7 @@ public class Reader {
 
 			StorageStudent student = new StorageStudent();
 
-			student.setName(studentData.get("﻿Name"));
+			student.setName(studentData.get("Name"));
 			String major = studentData.get("Major");
 			student.setMajor(major);
 			ArrayList<String> registeredCourses = new ArrayList<String>();
@@ -116,7 +116,7 @@ public class Reader {
 			String section = courseData.get("Section");
 			if(section.equals("ONLINE")) {
 				OnlineCourses online = new OnlineCourses();
-				online.setCourseID(courseData.get("﻿CourseID"));
+				online.setCourseID(courseData.get("CourseID"));
 				online.setCourseName(courseData.get("CourseName"));
 				online.setSemester(courseData.get("Semester"));
 				online.setSection(courseData.get("Section"));
@@ -126,12 +126,11 @@ public class Reader {
 					online.setURL(URL);
 				}
 				arrCourses.add(online);
-	            
 			}
 			else {
 				ClassroomCourse classroom = new ClassroomCourse();
 				
-				String courseID = courseData.get("﻿CourseID");
+				String courseID = courseData.get("CourseID");
 				classroom.setCourseID(courseID);
 
 				classroom.setSection(section);
@@ -188,10 +187,7 @@ public class Reader {
 		ArrayList<StorageStudent> students = studentReader("students.csv");
 
 		ArrayList<StorageCourse> courses = courseReader("courses.csv");
-           
+
 		System.out.println(courses);
-		
-
-
 	}
 }

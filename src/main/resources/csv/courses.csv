@@ -1,4 +1,4 @@
-﻿CourseID,Section,CourseName,Room,Days,StartTime,Semester,NumberOfStudentsRegistered,NumberOfAvailableSeats,URL,Prerequisite1,Prerequisite2
+CourseID,Section,CourseName,Room,Days,StartTime,Semester,NumberOfStudentsRegistered,NumberOfAvailableSeats,URL,Prerequisite1,Prerequisite2
 CSCE10,1,INTRODUCTION TO CSE,AVH115,TUESDAY,1700,1198,8,5,,,
 CSCE10,2,INTRODUCTION TO CSE,LPH137,MONDAY,1030,1198,16,5,,,
 CSCE10,3,INTRODUCTION TO CSE,AVH111,TUESDAY,1600,1198,15,17,,,
