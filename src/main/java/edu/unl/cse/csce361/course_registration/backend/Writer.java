@@ -52,25 +52,31 @@ public class Writer {
         Set<Map<String, String>> data = new HashSet<Map<String, String>>();
         for(StorageCourse course : courses){
             Map<String,String> courseMap = new HashMap<>();
-
+            String section = course.getSection();
             courseMap.put("CourseID", course.getCourseID());
             courseMap.put("Section", course.getSection());
             courseMap.put("CourseName", course.getCourseName());
-            courseMap.put("Room",course.getRoom());
-            courseMap.put("Days",course.getDays());
-            courseMap.put("StartTime",course.getStartTime());
             courseMap.put("Semester",course.getSemester());
-            courseMap.put("NumberOfStudentsRegistered",""+course.getStudentsRegistered());
-            courseMap.put("NumberOfAvailableSeats",""+course.getAvailableSeats());
-            courseMap.put("URL",course.getURL());
-            ArrayList<String> prerequisites = course.getPrerequisiteCourseIDs();
+            if(section.equals("ONLINE")){
+                OnlineCourses online = (OnlineCourses) course;
+                courseMap.put("URL",online.getURL());
+            }else{
+                ClassroomCourse classroom = (ClassroomCourse) course;
+                courseMap.put("Room",classroom.getRoom());
+                courseMap.put("Days",classroom.getDays());
+                courseMap.put("StartTime",classroom.getStartTime());
 
-            if(prerequisites.size() > 0){
-                courseMap.put("Prerequisite1",prerequisites.get(0));
-                if(prerequisites.size() > 1){
-                    courseMap.put("Prerequisite2",prerequisites.get(1));
-                }else{
-                    courseMap.put("Prerequisite2", null);
+                courseMap.put("NumberOfStudentsRegistered",""+ classroom.getStudentsRegistered());
+                courseMap.put("NumberOfAvailableSeats","" +classroom.getAvailableSeats());
+
+                ArrayList<String> prerequisites = classroom.getPreReq();
+                if(prerequisites.size() > 0){
+                    courseMap.put("Prerequisite1",prerequisites.get(0));
+                    if(prerequisites.size() > 1){
+                        courseMap.put("Prerequisite2",prerequisites.get(1));
+                    }else{
+                        courseMap.put("Prerequisite2", null);
+                    }
                 }
             }
 
