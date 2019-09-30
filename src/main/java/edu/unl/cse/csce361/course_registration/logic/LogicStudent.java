@@ -79,8 +79,6 @@ public class LogicStudent implements Student {
         if (student.getRegisteredCoursesID().size() >= this.maxEnrollment){
             System.out.println("You have reached your course registration limit.");
         }else {
-
-
             StorageCourse course = StorageCourse.getCourseWithID(courseList, courseID, section);
             //Has the student already completed the course
             if (student.getCompletedCoursesID().contains(courseID)) {
@@ -99,6 +97,7 @@ public class LogicStudent implements Student {
                 if(hasScheduleConflict(classroomCourse.getMeetingTime())){
                     System.out.println("This course does not fit in your schedule. If available, try another section.");
                 }else{
+                    //TODO: Are the prerequisites fulfilled?
                     LogicCourse newCourse = new LogicCourse(courseID, section);
                     if(newCourse.addStudent()){
                         student.getRegisteredCoursesID().add(courseID);
