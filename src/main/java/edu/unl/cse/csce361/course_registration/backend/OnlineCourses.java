@@ -1,5 +1,8 @@
 package edu.unl.cse.csce361.course_registration.backend;
 
+import java.awt.geom.Area;
+import java.util.ArrayList;
+
 public class OnlineCourses extends StorageCourse {
 
 	private String CourseID;
@@ -11,14 +14,20 @@ public class OnlineCourses extends StorageCourse {
 	public String getSection() {
 		return Section;
 	}
+	
+	
+
 	@Override
 	public String toString() {
-		return "\nOnlineCourses [CourseID=" + CourseID + ", CourseName=" + CourseName + ", Semester=" + Semester
+		return "OnlineCourses [CourseID=" + CourseID + ", CourseName=" + CourseName + ", Semester=" + Semester
 				+ ", URL=" + URL + ", Section=" + Section + ", getSection()=" + getSection() + ", getCourseID()="
 				+ getCourseID() + ", getCourseName()=" + getCourseName() + ", getSemester()=" + getSemester()
-				+ ", getURL()=" + getURL() + ", printInfo()=" + printInfo() + ", getClass()=" + getClass()
-			   + "]";
+				+ ", getURL()=" + getURL() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode()
+				+ ", toString()=" + super.toString() + "]";
 	}
+
+
+
 	public void setSection(String section) {
 		Section = section;
 	}
@@ -60,10 +69,23 @@ public class OnlineCourses extends StorageCourse {
 	}
 
 	@Override
-	public String printInfo() {
+	public void printInfo() {
 		// TODO Auto-generated method stub
-		return null;
-	}	
+	    	String printOnlineCourse = getCourseID() +"    " + getCourseName()+ "     "+ getSection() +"    " + getURL();
 	
+	}	
+	public static void main(String[]args) {
+	
+      ArrayList<StorageCourse> course = new ArrayList<StorageCourse>();
+      course = Reader.courseReader("courses.csv");
+   
+      System.out.println(getCourseWithID(course, "CSCE251", "ONLINE"));
+      /*
+      for(int i = 1; i<= course.size();i++) {
+    	  if(course.get(i-1).getSection().equals("ONLINE")) {
+    	  }
+      }
+    */
+	}
 	
 }

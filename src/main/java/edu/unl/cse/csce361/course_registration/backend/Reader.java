@@ -126,6 +126,7 @@ public class Reader {
 					online.setURL(URL);
 				}
 				arrCourses.add(online);
+	            
 			}
 			else {
 				ClassroomCourse classroom = new ClassroomCourse();
@@ -189,7 +190,7 @@ public class Reader {
 		ArrayList<StorageCourse> courses = courseReader("courses.csv");
            
 		System.out.println(courses);
-       
+		
 
 
 	}

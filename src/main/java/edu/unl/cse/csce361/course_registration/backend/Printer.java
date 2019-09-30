@@ -6,20 +6,21 @@ public class Printer {
 	
 	public static void coursePrinter() {
 		Reader r = new Reader();
-		StorageCourse course = new StorageCourse();
-        ArrayList<StorageCourse> onlineCourse = new ArrayList<StorageCourse>();
-        ArrayList<StorageCourse> offlineCourse = new ArrayList<StorageCourse>();
-        
+
+		OnlineCourses online = new OnlineCourses();
 		ArrayList<StorageCourse> c = Reader.courseReader("courses.csv");
 		System.out.println("Here are courses and its information");
 		System.out.printf("\n%s  %15s %25s %15s  %10s    %10s    %10s  %15s  %15s  %21s  %25s  ","CourseID", "Section", "CourseName","Room","Days","StartTime","Semester","NumberOfStudentsRegistered","NumberOfAvailableSeats","URL","Prerequisites");  
 
 		for(int i = 1; i<= c.size() ; i++) {
-            if(c.get(i-1).getSection().equals("ONLINE")) {
-            	
+            if(c.get(i-1) instanceof OnlineCourses ) {
+              c.get(i-1).printInfo();	
             }
-			System.out.printf("\n%s%15s     %25s %15s %10s  %10s   %10s  %17d  %25d  %30s  %23s", c.get(i-1).getCourseID(),c.get(i-1).getSection(),c.get(i-1).getCourseName(),c.get(i-1).getRoom(),c.get(i-1).getDays(),c.get(i-1).getStartTime(),c.get(i-1).getSemester(),c.get(i-1).getStudentsRegistered(),c.get(i-1).getAvailableSeats(),c.get(i-1).getURL(),c.get(i-1).getPrerequisiteCourseIDs());
-			System.out.println("\n-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+            else{
+            	c.get(i-1).printInfo();
+            }
+			//System.out.printf("\n%s%15s     %25s %15s %10s  %10s   %10s  %17d  %25d  %30s  %23s", c.get(i-1).getCourseID(),c.get(i-1).getSection(),c.get(i-1).getCourseName(),c.get(i-1).getRoom(),c.get(i-1).getDays(),c.get(i-1).getStartTime(),c.get(i-1).getSemester(),c.get(i-1).getStudentsRegistered(),c.get(i-1).getAvailableSeats(),c.get(i-1).getURL(),c.get(i-1).getPrerequisiteCourseIDs());
+			//System.out.println("\n-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
 			//System.out.printf("SR.%d s",i,.get(i).getCourseID(),c.get(i).getSection(),c.get(i).getCourseName(),c.get(i).getRoom(),c.get(i).getDays(),c.get(i).getDays(),c.get(i).getStartTime(),c.get(i).getSemester(),c.get(i).getStudentsRegistered(),c.get(i).getAvailableSeats(),c.get(i).getURL(),c.get(i).getPrerequisiteCourseIDs());
 
 		}
@@ -66,7 +67,7 @@ public class Printer {
 
 	}
     public static void printByName(String name) {
-    	StorageCourse c = new StorageCourse();
+    	
     	ArrayList<StorageStudent> studentAll = new ArrayList<StorageStudent>();
     	StorageStudent student = new StorageStudent();
     	ArrayList<StorageCourse> courses = new ArrayList<StorageCourse>();

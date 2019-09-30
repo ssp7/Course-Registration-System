@@ -25,7 +25,7 @@ public abstract class StorageCourse {
 
 
 
-    public abstract String printInfo();
+    public abstract void printInfo();
 
 	
 

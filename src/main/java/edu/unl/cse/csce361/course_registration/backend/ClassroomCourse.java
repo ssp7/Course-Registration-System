@@ -45,9 +45,10 @@ public class ClassroomCourse extends StorageCourse{
 
 
 	@Override
-	public String printInfo() {
+	public void printInfo() {
 		// TODO Auto-generated method stub
-		return null;
+		
+        System.out.println(this.courseID+ "  " +this.courseName+"  "+this.semester+"  "+this.section+"  "+this.room+"  "+this.meetingTime+"  "+this.studentsRegistered+"  "+this.availableSeats);
 	}
 	
 	 public void setMeetingTime(){
