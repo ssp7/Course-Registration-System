@@ -22,5 +22,20 @@ public class BackendFacade {
       return Writer.courseWriter(courses, "courses.csv");
    }
 
+   public static void printCourseList(){
+      Printer.coursePrinter();
+   }
+
+   public static void printStudentList(){
+      Printer.studentPrinter();
+   }
+
+   public static void printStudentByName(String studentName){
+      Printer.printByName(studentName);
+   }
+
+   public static void printStudentByIndex(int index){
+      Printer.printByNumber(index);
+   }
 
 }
