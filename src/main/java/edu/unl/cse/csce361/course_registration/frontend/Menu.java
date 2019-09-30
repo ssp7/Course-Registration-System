@@ -14,6 +14,9 @@ import javax.swing.text.html.HTMLDocument.Iterator;
 public class Menu {
 
 	public static void main(String[] args) {
+		const int maxEnrollmentAdvisor = 8;
+		const int maxEnrollmentStudent = 6;
+
 		System.out.println("Welcome to the course regester");
 		Scanner scan = new Scanner(System.in);
 
