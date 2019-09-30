@@ -19,9 +19,48 @@ public class LogicStudent implements Student {
         this.maxEnrollment = maxEnrollment;
     }
 
-    public boolean isNameValid(String name){
-        studentList.contains(name);
+    public static boolean isNameValid(String name){
+        ArrayList<StorageStudent> studentList = BackendFacade.readStudents();
+        boolean valid = false;
+        int index = 0;
+        while(index < studentList.size() && valid == false){
+            String studentName = studentList.get(index).getName();
+            if(studentName.equals(name)){
+                valid = true;
+            }
+        }
+        index++;
+        return valid;
     }
+
+    public static boolean isCourseValid(String courseID){
+        private ArrayList<StorageCourse> courseList = BackendFacade.readCourses();
+        boolean valid = false;
+        int index = 0;
+        while(index < courseList.size() && valid == false){
+            String courseIDInList = courseList.get(index).getCourseID();
+            if(courseIDInList.equals(courseID)){
+                valid = true;
+            }
+            index++;
+        }
+        return valid;
+    }
+
+    public static boolean isSectionValid(String courseID, String section){
+        private ArrayList<StorageCourse> courseList = BackendFacade.readCourses();
+        boolean valid = false;
+        int index = 0;
+        while(index < courseList.size() && valid == false){
+            String courseIDInList = courseList.get(index).getCourseID();
+            String sectionInList = courseList.get(index).getSection();
+            if(courseIDInList.equals(courseID) && sectionInList.equals(section)){
+                valid = true;
+            }
+            index++;
+        }
+    }
+
 
     @Override
     public String getName() {
@@ -40,12 +79,14 @@ public class LogicStudent implements Student {
         if (student.getRegisteredCoursesID().size() >= this.maxEnrollment){
             System.out.println("You have reached your course registration limit.");
         }else {
+
+
             StorageCourse course = StorageCourse.getCourseWithID(courseList, courseID, section);
             //Has the student already completed the course
             if (student.getCompletedCoursesID().contains(courseID)) {
                 System.out.println("You have already completed that course.");
             } else if(student.getRegisteredCoursesID().contains(courseID)){
-                System.out.println("You can not register or multiple sections of the same course.");
+                System.out.println("You can not register for multiple sections of the same course.");
             }else if (course instanceof OnlineCourses) {
                 OnlineCourses onlineCourses = (OnlineCourses) course;
                 student.getRegisteredCoursesID().add(courseID);

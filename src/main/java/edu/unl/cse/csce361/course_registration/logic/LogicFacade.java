@@ -7,7 +7,15 @@ public class LogicFacade {
     }
     
     public static boolean isNameValid(String name){
-        LogicStudent.isNameValid(name);
+        return LogicStudent.isNameValid(name);
+    }
+
+    public static boolean isCourseValid(String courseID){
+        return LogicStudent.isCourseValid(courseID);
+    }
+
+    public static boolean isSectionValid(String courseID, String section){
+        return LogicStudent.isSectionValid(String courseID, String section);
     }
 
     public static void enrollStudentInCourse(String studentName, int maxEnrollment, String courseID, String section){
