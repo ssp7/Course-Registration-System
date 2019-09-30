@@ -2,10 +2,7 @@ package edu.unl.cse.csce361.course_registration.logic;
 
 import edu.unl.cse.csce361.course_registration.CourseOffering;
 import edu.unl.cse.csce361.course_registration.Student;
-import edu.unl.cse.csce361.course_registration.backend.BackendFacade;
-import edu.unl.cse.csce361.course_registration.backend.Reader;
-import edu.unl.cse.csce361.course_registration.backend.StorageCourse;
-import edu.unl.cse.csce361.course_registration.backend.StorageStudent;
+import edu.unl.cse.csce361.course_registration.backend.*;
 
 import java.util.ArrayList;
 
@@ -37,7 +34,12 @@ public class LogicCourse implements CourseOffering {
 
     @Override
     public int getNumberOfStudentsRegistered() {
-        return StorageCourse.getCourseWithID(courseList, courseID,section).getStudentsRegistered();
+        StorageCourse course = StorageCourse.getCourseWithID(courseList, courseID,section);
+        if(course instanceof ClassroomCourse) {
+            ClassroomCourse classroom = (ClassroomCourse) course;
+            return classroom.getStudentsRegistered();
+        }
+        return 0;
     }
 
     private void updateCourseList(){
@@ -51,20 +53,19 @@ public class LogicCourse implements CourseOffering {
     @Override
     public boolean addStudent() {
         boolean success = false;
-        boolean isOnline = this.section.equals("ONLINE");
         StorageCourse course = StorageCourse.getCourseWithID(courseList, courseID,section);
-        int numStudents = course.getStudentsRegistered();
-        if(!isOnline) {
-            int seatsAvailable = course.getAvailableSeats();
+        if(course instanceof ClassroomCourse){
+            ClassroomCourse classroom = (ClassroomCourse) course;
+            int numStudents = classroom.getStudentsRegistered();
+            int seatsAvailable = classroom.getAvailableSeats();
             if (seatsAvailable != 0) {
-                course.setStudentsRegistered(numStudents++);
+                classroom.setStudentsRegistered(numStudents++);
                 seatsAvailable--;
-                course.setAvailableSeats(seatsAvailable);
+                classroom.setAvailableSeats(seatsAvailable);
                 success = true;
             }
-        } else if(isOnline){
-            course.setStudentsRegistered(numStudents++);
         }
+
         if(success){
             BackendFacade.writeCourses(courseList);
         }
@@ -79,16 +80,16 @@ public class LogicCourse implements CourseOffering {
     public boolean removeStudent() {
         boolean success = false;
         StorageCourse course = StorageCourse.getCourseWithID(courseList, courseID,section);
-        int studentsRegistered = course.getStudentsRegistered();
-        if(studentsRegistered !=0){ //classroom and online course
-            course.setStudentsRegistered(studentsRegistered--);
-            success = true;
-        }
-
-        if(!this.section.equals("ONLINE")){ //classroom course only
-            int seatsAvailable = course.getAvailableSeats();
-            seatsAvailable++;
-            course.setAvailableSeats(seatsAvailable);
+        if(course instanceof  ClassroomCourse){
+            ClassroomCourse classroom = (ClassroomCourse) course;
+            int studentsRegistered = classroom.getStudentsRegistered();
+            if(studentsRegistered !=0){ //classroom and online course
+                classroom.setStudentsRegistered(studentsRegistered--);
+                int seatsAvailable = classroom.getAvailableSeats();
+                seatsAvailable++;
+                classroom.setAvailableSeats(seatsAvailable);
+                success = true;
+            }
         }
         BackendFacade.writeCourses(courseList);
         return success;
