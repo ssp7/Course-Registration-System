@@ -16,6 +16,7 @@ public class Menu {
 	public static void main(String[] args) {
 		System.out.println("Welcome to the course regester");
 		Scanner scan = new Scanner(System.in);
+		
 		Scanner scanName = new Scanner(System.in);
 		System.out.println("Would you like to login as a Student or an Advisor. ");
 		System.out.println("Press 0 for Advisor and 1 for Student");
@@ -34,8 +35,8 @@ public class Menu {
 
 			print.studentPrinter();
 			System.out.println("Please enter the number who's data you need to modify");
-			String studentName = scanName.nextLine();
-			print.printByName(studentName);
+			int studentName = scanName.nextInt();
+			print.printByNumber(studentName);
  
 
 		}
@@ -43,6 +44,10 @@ public class Menu {
 		else {
 
            StorageStudent studentByName = new StorageStudent();
+           System.out.println("\n");
+           System.out.println("\n");
+           System.out.println("\n");
+           System.out.println("\n");
 			System.out.println("Please enter your name");
 			String name = scanName.nextLine();
 		    print.printByName(name);
