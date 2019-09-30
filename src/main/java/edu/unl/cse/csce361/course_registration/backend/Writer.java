@@ -16,18 +16,21 @@ public class Writer {
             Map<String,String> studentMap = new HashMap<>();
             studentMap.put("Name",student.getName());
             studentMap.put("Major",student.getMajor());
-            ArrayList<String> registerCourses = student.getRegisteredCoursesID();
+            ArrayList<String> registeredCourses = student.getRegisteredCoursesID();
+            ArrayList<String> registeredCoursesSection = student.getRegisteredCoursesSections();
             int numRegistered = 1;
             for(int i = 0; i < 8; i++){
-                if(registerCourses.size() >= numRegistered){
-                studentMap.put("RegisteredCourse"+numRegistered,registerCourses.get(i));
+                if(registeredCourses.size() >= numRegistered){
+                studentMap.put("RegisteredCourse"+numRegistered,registeredCourses.get(i));
+                studentMap.put("RegisteredCourseSection"+numRegistered,registeredCoursesSection.get(i));
                 numRegistered++;
                 }else{
                     studentMap.put("RegisteredCourse"+numRegistered, null);
+                    studentMap.put("RegisteredCourseSection"+numRegistered,null);
                     numRegistered++;
                 }
             }
-            //System.out.println(studentMap);
+            System.out.println(studentMap);
             ArrayList<String> completedCourses = student.getCompletedCoursesID();
 
             int numCompleted = 1;
@@ -87,20 +90,14 @@ public class Writer {
         return success;
     }
 
-    public static void main(String[]args) {
-        System.out.println("Original CSV Files");
-        ArrayList<StorageStudent> students = Reader.studentReader("students.csv");
-        System.out.println(students);
-        ArrayList<StorageCourse> courses = Reader.courseReader("courses.csv");
-        System.out.println(courses);
-
-        boolean wroteStudents = studentWriter(students, "testStudents.csv");
-        boolean wroteCourses = courseWriter(courses, "testCourses.csv");
-
-        System.out.println("Copied CSV Files");
-        ArrayList<StorageStudent> students2 = Reader.studentReader("testStudents.csv");
-        System.out.println(students2);
-        ArrayList<StorageCourse> courses2 = Reader.courseReader("testCourses.csv");
-        System.out.println(courses2);
-    }
+//    public static void main(String[]args) {
+//        System.out.println("Original CSV Files");
+//        ArrayList<StorageStudent> students = Reader.studentReader("students.csv");
+//        System.out.println(students);
+//        //ArrayList<StorageCourse> courses = Reader.courseReader("courses.csv");
+//        //System.out.println(courses);
+//
+//        boolean wroteStudents = studentWriter(students, "testStudents.csv");
+//        //boolean wroteCourses = courseWriter(courses, "testCourses.csv");
+//    }
 }
