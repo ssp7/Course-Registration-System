@@ -19,6 +19,10 @@ public class LogicStudent implements Student {
         this.maxEnrollment = maxEnrollment;
     }
 
+    public boolean isNameValid(String name){
+        studentList.contains(name);
+    }
+
     @Override
     public String getName() {
         return StorageStudent.getStudentWithName(studentList, studentName).getName();

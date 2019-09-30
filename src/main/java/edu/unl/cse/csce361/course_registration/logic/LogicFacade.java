@@ -5,6 +5,10 @@ public class LogicFacade {
     private LogicFacade(){
         
     }
+    
+    public static boolean isNameValid(String name){
+        LogicStudent.isNameValid(name);
+    }
 
     public static void enrollStudentInCourse(String studentName, int maxEnrollment, String courseID, String section){
         LogicStudent student = new LogicStudent(studentName, maxEnrollment);
