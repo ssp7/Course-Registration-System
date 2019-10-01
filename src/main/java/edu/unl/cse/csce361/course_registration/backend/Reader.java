@@ -92,7 +92,7 @@ public class Reader {
 			int numCompleted = 1;
 			for(int i = 0; i < 25; i++){
 				String completedCourse = studentData.get("CompletedCourse"+numCompleted);
-				//System.out.println(completedCourse);
+
 				if(completedCourse != null && completedCourse.length() > 1){
 					completedCourses.add(completedCourse);
 				}
@@ -180,14 +180,5 @@ public class Reader {
 		}
 		return arrCourses;
 	}
-	
 
-
-	public static void main(String[]args) {
-		ArrayList<StorageStudent> students = studentReader("students.csv");
-
-		ArrayList<StorageCourse> courses = courseReader("courses.csv");
-
-		System.out.println(courses);
-	}
 }

@@ -81,14 +81,6 @@ public abstract class StorageCourse {
 
         return requestedCourse;
     }
-    
-    
-    
-    
-    public static void main(String[]args) {
-    	ArrayList<StorageCourse> coursesAll = new ArrayList<StorageCourse>();
-    	coursesAll = Reader.courseReader("courses.csv");
-    }
 }
 
 

@@ -30,7 +30,7 @@ public class Writer {
                     numRegistered++;
                 }
             }
-            System.out.println(studentMap);
+
             ArrayList<String> completedCourses = student.getCompletedCoursesID();
 
             int numCompleted = 1;
@@ -90,14 +90,4 @@ public class Writer {
         return success;
     }
 
-//    public static void main(String[]args) {
-//        System.out.println("Original CSV Files");
-//        ArrayList<StorageStudent> students = Reader.studentReader("students.csv");
-//        System.out.println(students);
-//        //ArrayList<StorageCourse> courses = Reader.courseReader("courses.csv");
-//        //System.out.println(courses);
-//
-//        boolean wroteStudents = studentWriter(students, "testStudents.csv");
-//        //boolean wroteCourses = courseWriter(courses, "testCourses.csv");
-//    }
 }

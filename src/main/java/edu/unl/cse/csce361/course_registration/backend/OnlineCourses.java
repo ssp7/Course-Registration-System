@@ -75,18 +75,4 @@ public class OnlineCourses extends StorageCourse {
 		
 	}
 
-	public static void main(String[]args) {
-	
-      ArrayList<StorageCourse> course = new ArrayList<StorageCourse>();
-      course = Reader.courseReader("courses.csv");
-   
-      System.out.println(getCourseWithID(course, "CSCE251", "ONLINE"));
-      /*
-      for(int i = 1; i<= course.size();i++) {
-    	  if(course.get(i-1).getSection().equals("ONLINE")) {
-    	  }
-      }
-    */
-	}
-	
 }
