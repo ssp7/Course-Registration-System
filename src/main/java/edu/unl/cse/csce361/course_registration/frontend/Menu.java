@@ -48,11 +48,10 @@ public class Menu {
 			nameValid = LogicFacade.isNameValid(name);
 			if(nameValid == false) {
 				System.out.println("Please enter a valid name");
-				name = s.nextLine();		
 			}
 		}
 		LogicFacade.printStudentByName(name);
-		System.out.println("----------------------------------------------------------------------------------------------------------------------------------------------");
+		System.out.println("\n----------------------------------------------------------------------------------------------------------------------------------------------");
 		
 
 		while(exit == false) {
@@ -65,7 +64,7 @@ public class Menu {
 			switch(coursePress){
 			case 0:
 				LogicFacade.printCourseList();
-				System.out.println("Please enter the courseID for the course you would like to add");
+				System.out.println("\nPlease enter the courseID for the course you would like to add");
 				String courseID = null;
 				String  section = null;
 				boolean courseCheck = false;
@@ -91,7 +90,7 @@ public class Menu {
 				break;
 			case 1:
 				LogicFacade.printCourseList();
-				System.out.println("Please enter the courseID for the course you would like to remove");
+				System.out.println("\nPlease enter the courseID for the course you would like to remove");
 				String courseIDtoremove = null;
 				String  sectiontoremove = null;
 				boolean courseChecktoremove = false;
@@ -134,7 +133,7 @@ public class Menu {
 			System.out.println("\nPlease enter the no. for student you would like to modify the data for");
 			indexForStudent = s.nextInt();
 			String name =  LogicFacade.printStudentByIndex(indexForStudent);
-			System.out.println("----------------------------------------------------------------------------------------------------------------------------------------------");
+			System.out.println("\n----------------------------------------------------------------------------------------------------------------------------------------------");
 			while(exit == false) {
 
 				System.out.println("To add a course press 0");
@@ -145,7 +144,7 @@ public class Menu {
 				switch(coursePress){
 				case 0:
 					LogicFacade.printCourseList();
-					System.out.println("Please enter the courseID for the course you would like to add");
+					System.out.println("\nPlease enter the courseID for the course you would like to add");
 					String courseID = null;
 					String  section = null;
 					boolean courseCheck = false;
@@ -171,7 +170,7 @@ public class Menu {
 				break;	
 				case 1:
 					LogicFacade.printCourseList();
-					System.out.println("Please enter the courseID for the course you would like to remove");
+					System.out.println("\nPlease enter the courseID for the course you would like to remove");
 					String courseIDtoremove = null;
 					String  sectiontoremove = null;
 					boolean courseChecktoremove = false;
