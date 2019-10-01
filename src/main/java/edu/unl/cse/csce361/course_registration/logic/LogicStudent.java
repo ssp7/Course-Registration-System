@@ -64,35 +64,39 @@ public class LogicStudent implements Student {
     }
 
     public boolean fulfillsPrerequisites(String courseID, String section){
+
         boolean requiredCoursesCompleted = true;
         StorageStudent student = StorageStudent.getStudentWithName(studentList, studentName);
         ArrayList<String> completedCourses = student.getCompletedCoursesID();
         ClassroomCourse course = (ClassroomCourse) StorageCourse.getCourseWithID(courseList, courseID, section);
         ArrayList<String> requiredCourses = course.getPreReq();
-        //first PreReq
-        if(requiredCourses.get(0).contains("OR")){
-            String[] options =requiredCourses.get(0).split(" OR ");
-            if(!completedCourses.contains(options[0]) && !completedCourses.contains(options[1])){
-                requiredCoursesCompleted = false;
-            }
-        }else{
-            if(!completedCourses.contains(requiredCourses.get(0))){
-                requiredCoursesCompleted = false;
-            }
-        }
-
-        //second PreReq
-        if(requiredCourses.get(1).contains("OR")){
-            String[] options =requiredCourses.get(1).split(" OR ");
-            if(!completedCourses.contains(options[0]) && !completedCourses.contains(options[1])){
-                requiredCoursesCompleted = false;
-            }
-        }else{
-            if(!completedCourses.contains(requiredCourses.get(0))){
-                requiredCoursesCompleted = false;
+        if(requiredCourses.size() > 0){
+            //first PreReq
+            if(requiredCourses.get(0).contains("OR")){
+                String[] options =requiredCourses.get(0).split(" OR ");
+                if(!completedCourses.contains(options[0]) && !completedCourses.contains(options[1])){
+                    requiredCoursesCompleted = false;
+                }
+            }else{
+                if(!completedCourses.contains(requiredCourses.get(0))){
+                    requiredCoursesCompleted = false;
+                }
             }
         }
 
+        if(requiredCourses.size() > 1){
+            //second PreReq
+            if(requiredCourses.get(1).contains("OR")){
+                String[] options =requiredCourses.get(1).split(" OR ");
+                if(!completedCourses.contains(options[0]) && !completedCourses.contains(options[1])){
+                    requiredCoursesCompleted = false;
+                }
+            }else{
+                if(!completedCourses.contains(requiredCourses.get(0))){
+                    requiredCoursesCompleted = false;
+                }
+            }
+        }
         return requiredCoursesCompleted;
     }
 
@@ -154,7 +158,7 @@ public class LogicStudent implements Student {
     @Override
     public void removeCourse(String courseID) {
         StorageStudent student = StorageStudent.getStudentWithName(studentList, studentName);
-        if(student.getRegisteredCoursesSections().contains(courseID)){
+        if(student.getRegisteredCoursesID().contains(courseID)){
             int index  = student.getRegisteredCoursesID().indexOf(courseID);
             String section = student.getRegisteredCoursesSections().get(index);
             StorageCourse course = StorageCourse.getCourseWithID(courseList, courseID, section);
