@@ -58,16 +58,14 @@ public class ClassroomCourse extends StorageCourse{
 	}
 	
 	 public void setMeetingTime(){
-	    	if(this.getSection().equals("ONLINE")) {
-	    		this.meetingTime = MeetingTime.ONLINE;
-	    	}
-	    	else {
+
+
 	        if( this.days!= null && this.days.equals("MONDAY") && this.days.length() > 0){
 	            switch (this.startTime){
-	                case "0830":
+	                case "830":
 	                    this.meetingTime = MeetingTime.MONDAY0830;
 	                    break;
-	                case "0930":
+	                case "930":
 	                    this.meetingTime = MeetingTime.MONDAY0930;
 	                    break;
 	                case "1030":
@@ -90,15 +88,18 @@ public class ClassroomCourse extends StorageCourse{
 	                case "1630":
 	                    this.meetingTime = MeetingTime.MONDAY1630;
 	                    break;
+					case "1700":
+						this.meetingTime = MeetingTime.MONDAY1700;
+						break;
 	                default:
 	                    this.meetingTime = null;
 	            }
 	        }else if(this.days != null && this.days.equals("TUESDAY") && this.days.length() > 0){
 	            switch (this.startTime){
-	                case "0800":
+	                case "800":
 	                    this.meetingTime = MeetingTime.TUESDAY0800;
 	                    break;
-	                case "0930":
+	                case "930":
 	                    this.meetingTime = MeetingTime.TUESDAY0930;
 	                    break;
 	                case "1100":
@@ -113,14 +114,15 @@ public class ClassroomCourse extends StorageCourse{
 	                case "1530":
 	                    this.meetingTime = MeetingTime.TUESDAY1530;
 	                    break;
+					case "1600":
+						this.meetingTime = MeetingTime.TUESDAY1600;
+						break;
 	                case "1700":
 	                    this.meetingTime = MeetingTime.TUESDAY1700;
 	                    break;
 	            }
-	        }else{
-	            this.meetingTime = MeetingTime.ONLINE;
 	        }
-	    	}
+
 	 }
 
 
