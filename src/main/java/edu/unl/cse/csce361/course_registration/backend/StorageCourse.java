@@ -8,7 +8,6 @@ public abstract class StorageCourse {
     private String courseID;
     private String section;
     private String courseName;
-  
     private String semester;
 
 

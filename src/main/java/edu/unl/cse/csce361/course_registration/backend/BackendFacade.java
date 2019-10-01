@@ -4,6 +4,10 @@ import java.util.ArrayList;
 
 public class BackendFacade {
 
+   private BackendFacade(){
+
+   }
+
    private boolean nameCheck;
 
    public static ArrayList<StorageStudent> readStudents(){
