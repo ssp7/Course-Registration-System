@@ -64,22 +64,26 @@ public class LogicStudent implements Student {
     }
 
     public boolean fulfillsPrerequisites(String courseID, String section){
-
+        System.out.println("Checking Perquisites");
         boolean requiredCoursesCompleted = true;
         StorageStudent student = StorageStudent.getStudentWithName(studentList, studentName);
         ArrayList<String> completedCourses = student.getCompletedCoursesID();
         ClassroomCourse course = (ClassroomCourse) StorageCourse.getCourseWithID(courseList, courseID, section);
         ArrayList<String> requiredCourses = course.getPreReq();
+        System.out.println(requiredCourses);
         if(requiredCourses.size() > 0){
             //first PreReq
             if(requiredCourses.get(0).contains("OR")){
                 String[] options =requiredCourses.get(0).split(" OR ");
                 if(!completedCourses.contains(options[0]) && !completedCourses.contains(options[1])){
                     requiredCoursesCompleted = false;
+                    return requiredCoursesCompleted;
                 }
             }else{
+                System.out.println("Checking first prereq");
                 if(!completedCourses.contains(requiredCourses.get(0))){
                     requiredCoursesCompleted = false;
+                    return requiredCoursesCompleted;
                 }
             }
         }
@@ -90,10 +94,12 @@ public class LogicStudent implements Student {
                 String[] options =requiredCourses.get(1).split(" OR ");
                 if(!completedCourses.contains(options[0]) && !completedCourses.contains(options[1])){
                     requiredCoursesCompleted = false;
+                    return requiredCoursesCompleted;
                 }
             }else{
                 if(!completedCourses.contains(requiredCourses.get(0))){
                     requiredCoursesCompleted = false;
+                    return requiredCoursesCompleted;
                 }
             }
         }

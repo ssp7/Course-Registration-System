@@ -1,4 +1,5 @@
 package edu.unl.cse.csce361.course_registration.backend;
+import java.lang.annotation.Target;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.Set;
@@ -109,6 +110,7 @@ public class Reader {
 
 	}
 
+
 	public static ArrayList<StorageCourse> courseReader(String filename){
 		ArrayList<StorageCourse> arrCourses = new ArrayList<StorageCourse>();
 		Set<Map<String, String>> mapData = CSVReaderWriter.readCSV(filename);
@@ -122,7 +124,7 @@ public class Reader {
 				online.setSection(courseData.get("Section"));
 
 				String URL = courseData.get("URL");
-				if(URL != null) {
+				if(URL != null && URL.length() >1) {
 					online.setURL(URL);
 				}
 				arrCourses.add(online);
@@ -180,5 +182,6 @@ public class Reader {
 		}
 		return arrCourses;
 	}
+
 
 }

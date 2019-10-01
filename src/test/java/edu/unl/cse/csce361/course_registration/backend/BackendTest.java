@@ -22,6 +22,12 @@ public class BackendTest {
     }
 
     @Test
+    public void testCourseReader(){
+        System.out.println(Reader.courseReader("courses.csv"));
+    }
+
+
+    @Test
     public void testWriteCourse(){
         BackendFacade.writeCourses(BackendFacade.readCourses());
     }
