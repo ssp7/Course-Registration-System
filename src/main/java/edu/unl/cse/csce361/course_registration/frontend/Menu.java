@@ -12,9 +12,7 @@ import java.util.Set;
 import javax.swing.text.html.HTMLDocument.Iterator;
 
 public class Menu {
-	public static void courseMenu() {
 
-	}
 	public static void mainMenu() {
 		boolean exit = false;
 		Scanner s = new Scanner(System.in);
@@ -38,7 +36,7 @@ public class Menu {
 
 	}
 	public static void studentMenu() {
-		int maxEnrollmentStudent = 6;
+	final int maxEnrollmentStudent = 6;
 		boolean exit = false;
 		boolean nameValid = false;
 		Scanner s = new Scanner(System.in);
@@ -54,6 +52,8 @@ public class Menu {
 			}
 		}
 		LogicFacade.printStudentByName(name);
+		System.out.println("----------------------------------------------------------------------------------------------------------------------------------------------");
+		
 
 		while(exit == false) {
 
@@ -88,7 +88,7 @@ public class Menu {
 
 				}
 				LogicFacade.enrollStudentInCourse(name, maxEnrollmentStudent, courseID, section);
-				maxEnrollmentStudent--;
+				break;
 			case 1:
 				LogicFacade.printCourseList();
 				System.out.println("Please enter the courseID for the course you would like to remove");
@@ -114,8 +114,10 @@ public class Menu {
 
 				}
 				LogicFacade.dropStudentFromCourse(name, courseIDtoremove);
+				break;
 			case 2:
 				exit =true;
+				break;
 			}
 
 		}
@@ -126,12 +128,13 @@ public class Menu {
 
 		LogicFacade.printStudentList();
 		int indexForStudent = 0;
-		int maxEnrollmentAdvisor = 8;
+		final int maxEnrollmentAdvisor = 8;
 		boolean exit = false;
 		while(exit == false) {
-			System.out.println("Please enter the no. for student you would like to modify the data for");
+			System.out.println("\nPlease enter the no. for student you would like to modify the data for");
 			indexForStudent = s.nextInt();
 			String name =  LogicFacade.printStudentByIndex(indexForStudent);
+			System.out.println("----------------------------------------------------------------------------------------------------------------------------------------------");
 			while(exit == false) {
 
 				System.out.println("To add a course press 0");
@@ -159,13 +162,13 @@ public class Menu {
 								if(sectionCheck  == false) {
 									System.out.println("Please enter a valid section");
 								}
-
+                               
 							}
 						}
 
 					}
 					LogicFacade.enrollStudentInCourse(name, maxEnrollmentAdvisor, courseID, section);
-					maxEnrollmentAdvisor--;
+				break;	
 				case 1:
 					LogicFacade.printCourseList();
 					System.out.println("Please enter the courseID for the course you would like to remove");
@@ -191,8 +194,10 @@ public class Menu {
 
 					}
 					LogicFacade.dropStudentFromCourse(name, courseIDtoremove);
+					break;
 				case 2:
 					exit =true;
+					break;
 				}
 
 			}
