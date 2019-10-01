@@ -89,7 +89,7 @@ public class Menu {
 				LogicFacade.enrollStudentInCourse(name, maxEnrollmentStudent, courseID, section);
 				break;
 			case 1:
-				LogicFacade.printCourseList();
+
 				System.out.println("\nPlease enter the courseID for the course you would like to remove");
 				String courseIDtoremove = null;
 				String  sectiontoremove = null;
@@ -169,7 +169,7 @@ public class Menu {
 					LogicFacade.enrollStudentInCourse(name, maxEnrollmentAdvisor, courseID, section);
 				break;	
 				case 1:
-					LogicFacade.printCourseList();
+
 					System.out.println("\nPlease enter the courseID for the course you would like to remove");
 					String courseIDtoremove = null;
 					String  sectiontoremove = null;
