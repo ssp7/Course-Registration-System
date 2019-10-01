@@ -23,13 +23,14 @@ public class LogicStudent implements Student {
         ArrayList<StorageStudent> studentList = BackendFacade.readStudents();
         boolean valid = false;
         int index = 0;
-        while(index < studentList.size() && valid == false){
+        while(index < studentList.size() && !valid){
             String studentName = studentList.get(index).getName();
             if(studentName.equals(name)){
                 valid = true;
             }
+            index++;
         }
-        index++;
+
         return valid;
     }
 
@@ -37,7 +38,7 @@ public class LogicStudent implements Student {
         ArrayList<StorageCourse> courseList = BackendFacade.readCourses();
         boolean valid = false;
         int index = 0;
-        while(index < courseList.size() && valid == false){
+        while(index < courseList.size() && !valid){
             String courseIDInList = courseList.get(index).getCourseID();
             if(courseIDInList.equals(courseID)){
                 valid = true;
@@ -51,7 +52,7 @@ public class LogicStudent implements Student {
         ArrayList<StorageCourse> courseList = BackendFacade.readCourses();
         boolean valid = false;
         int index = 0;
-        while(index < courseList.size() && valid == false){
+        while(index < courseList.size() && !valid){
             String courseIDInList = courseList.get(index).getCourseID();
             String sectionInList = courseList.get(index).getSection();
             if(courseIDInList.equals(courseID) && sectionInList.equals(section)){
@@ -60,6 +61,39 @@ public class LogicStudent implements Student {
             index++;
         }
 		return valid;
+    }
+
+    public boolean fulfillsPrerequisites(String courseID, String section){
+        boolean requiredCoursesCompleted = true;
+        StorageStudent student = StorageStudent.getStudentWithName(studentList, studentName);
+        ArrayList<String> completedCourses = student.getCompletedCoursesID();
+        ClassroomCourse course = (ClassroomCourse) StorageCourse.getCourseWithID(courseList, courseID, section);
+        ArrayList<String> requiredCourses = course.getPreReq();
+        //first PreReq
+        if(requiredCourses.get(0).contains("OR")){
+            String[] options =requiredCourses.get(0).split(" OR ");
+            if(!completedCourses.contains(options[0]) && !completedCourses.contains(options[1])){
+                requiredCoursesCompleted = false;
+            }
+        }else{
+            if(!completedCourses.contains(requiredCourses.get(0))){
+                requiredCoursesCompleted = false;
+            }
+        }
+
+        //second PreReq
+        if(requiredCourses.get(1).contains("OR")){
+            String[] options =requiredCourses.get(1).split(" OR ");
+            if(!completedCourses.contains(options[0]) && !completedCourses.contains(options[1])){
+                requiredCoursesCompleted = false;
+            }
+        }else{
+            if(!completedCourses.contains(requiredCourses.get(0))){
+                requiredCoursesCompleted = false;
+            }
+        }
+
+        return requiredCoursesCompleted;
     }
 
 
@@ -98,15 +132,18 @@ public class LogicStudent implements Student {
                 if(hasScheduleConflict(classroomCourse.getMeetingTime())){
                     System.out.println("This course does not fit in your schedule. If available, try another section.");
                 }else{
-                    //TODO: Are the prerequisites fulfilled?
-                    LogicCourse newCourse = new LogicCourse(courseID, section);
-                    if(newCourse.addStudent()){
-                        student.getRegisteredCoursesID().add(courseID);
-                        student.getRegisteredCoursesSections().add(section);
-                        BackendFacade.writeStudents(studentList);
-                        System.out.println("The course has been added to your schedule.");
+                    if(fulfillsPrerequisites(courseID, section)){
+                        LogicCourse newCourse = new LogicCourse(courseID, section);
+                        if(newCourse.addStudent()){
+                            student.getRegisteredCoursesID().add(courseID);
+                            student.getRegisteredCoursesSections().add(section);
+                            BackendFacade.writeStudents(studentList);
+                            System.out.println("The course has been added to your schedule.");
+                        }else{
+                            System.out.println("The course is full.");
+                        }
                     }else{
-                        System.out.println("The course is full.");
+                        System.out.println("Prerequisites not fulfilled.");
                     }
                 }
             }
@@ -150,7 +187,7 @@ public class LogicStudent implements Student {
         ArrayList<String> registerCoursesSections = student.getRegisteredCoursesSections();
 
         int index = 0;
-        while (index < registerCoursesIDs.size() &&  hasConflict == false){
+        while (index < registerCoursesIDs.size() && !hasConflict){
             StorageCourse course = StorageCourse.getCourseWithID(courseList,registerCoursesIDs.get(index), registerCoursesSections.get(index));
             if(course instanceof ClassroomCourse){
                 MeetingTime courseMeetingTime = ((ClassroomCourse) course).getMeetingTime();
