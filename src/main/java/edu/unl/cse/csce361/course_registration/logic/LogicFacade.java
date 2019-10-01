@@ -43,7 +43,8 @@ public class LogicFacade {
        BackendFacade.printStudentByName(studentName);
     }
 
-    public static void printStudentByIndex(int index){
-       BackendFacade.printStudentByIndex(index);
+    public static String printStudentByIndex(int index){
+    	String name = BackendFacade.printStudentByIndex(index);
+    	return name;
     }
 }

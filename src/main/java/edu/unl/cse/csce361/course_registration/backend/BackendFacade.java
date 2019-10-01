@@ -34,8 +34,9 @@ public class BackendFacade {
       Printer.printByName(studentName);
    }
 
-   public static void printStudentByIndex(int index){
-      Printer.printByNumber(index);
+   public static String printStudentByIndex(int index){
+    String name =   Printer.printByNumber(index).getName();
+    return name;
    }
 
 }
