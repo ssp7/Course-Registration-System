@@ -14,7 +14,8 @@ Qiwei Ge
 ##### Positive Comments:
 1. Using a switch instead of else-if chain.  
 >`Menu.java` (line 24 -34)
->			switch(press) {
+```
+			switch(press) {
 			case 0:
 				studentMenu();
 				break;
@@ -25,23 +26,29 @@ Qiwei Ge
 				exit = true;
 				break;
 			}
+```
 >If you need to choose between a large set of values, the switch statement will run much faster than the equivalent logic encoded with else-if statement.
 
 2. Variables used to index short for loops named i,j,k, etc.  
 >`Writer.java` (line 22)
->            for(int i = 0; i < 8; i++){
+```
+            for(int i = 0; i < 8; i++){
+```
 >It's widely known and understood, and quite succinct.
 
 3. The methods' name are descriptive.  
 >For example: `BackendFacade.java` (line 13 - 44), one of the examples is,  
->     public static void printStudentByName(String studentName){  
+```
+     public static void printStudentByName(String studentName){  
           Printer.printByName(studentName);  
           }
+```
 >printStudentByName is a meaningful name. This is a method to print out student information when you type in the student's name.
 
 4. Combining multiple pieces of data into an ArrayList.
 >One of the examples is from `Reader.java` (line 16 - 107)  
->     ArrayList<StorageStudent> students  = new ArrayList<StorageStudent>();
+```
+     ArrayList<StorageStudent> students  = new ArrayList<StorageStudent>();
           for(Map<String, String> studentData : mapData) {
             StorageStudent student = new StorageStudent();
 			      student.setName(studentData.get("Name"));
@@ -53,13 +60,10 @@ Qiwei Ge
 			      student.setRegisteredCoursesSections(registeredCoursesSections);
 			      students.add(student);
           }
+```
 >Get all the informations from students by calling ArrayList students.
 
 ##### Improvement Comments:
-0.3 points - Have a description and location  
-0.3 points - Have a specific reason  
-0.3 points - Have a suggestion  
-0.3 points - Be phrased tactfully  
 1. Unused import.  
 >`OnlineCourses.java` line 3,4. There are two unused import\
 `import java.awt.geom.Area;` and `import java.util.ArrayList;`.\
@@ -76,7 +80,8 @@ There may no any performance impact for the program, but for readability you can
 
 4. Absence of useful comments (provide context for code).
  >`LogicStudent.java` line 22-35.
- >      public static boolean isNameValid(String name){
+```
+       public static boolean isNameValid(String name){
             ArrayList<StorageStudent> studentList =   BackendFacade.readStudents();
             boolean valid = false;
             int index = 0;
@@ -89,6 +94,7 @@ There may no any performance impact for the program, but for readability you can
                 }
                 return valid;
               }
+```
 >The methods in some java files clearly explain the purpose of the method.   
 `isNameValid` it may be the student's name, the name of the course you added, and the name of the course you deleted. It's hard for the maintainer to judge.  
 So a meaningful comment is very important here.
@@ -99,7 +105,8 @@ So a meaningful comment is very important here.
 
 6. Uncaught/unhandled runtime exceptions.
 >`Menu.java` line 173-194.
->				 System.out.println("\nPlease enter the courseID for the course you would like to remove");
+```
+				 System.out.println("\nPlease enter the courseID for the course you would like to remove");
 					String courseIDtoremove = null;
 					String  sectiontoremove = null;
 					boolean courseChecktoremove = false;
@@ -118,24 +125,31 @@ So a meaningful comment is very important here.
 							}
 						}
 					}
+```
 >What I am worried is after the message say `Please enter the courseID for the course you would like to remove`. \
 If I have a input with wrong `courseID`, the program will never print this message again.\
 Users would like consider there is no error The easy way to improve this issue is put printer into your first `while` loop;
 
 7. Names that are misspelled.
 >`LogicStudent.java` line 66.
->       public boolean fulfillsPrerequisites(String courseID, String section){
+```
+       public boolean fulfillsPrerequisites(String courseID, String section){
+```
 >Wrong spelling name increases the difficulty of maintainer. Try to avoid spelling mistakes in method names.
 
 8. Mismatch in array dimensions, causing an array index out-of-bounds exception.
 >`Printer.java` line 108.
-> 			student  = studentAll.get(index-1);
+```
+ 			student  = studentAll.get(index-1);
+```
 >When select as advisor, if the incorrect input is greater than the number of students. An error outOfBounds will occurred.\
 A `boolean` method may avoid this type of error.
 
 9. Resource leak.
 >`Menu.java` line 18, line 42, and line 126.
->		Scanner s = new Scanner(System.in);
+```
+		Scanner s = new Scanner(System.in);
+```
 >This condition is normally the result of a bug in a program. It's better use `s.close()` to close the `Scanner` if you don't need it.
 
 10. Misplaced responsibility.
@@ -144,7 +158,8 @@ A `boolean` method may avoid this type of error.
 
 11. Nonspecific error messages.
 >`Menu.java` line 67-88.
->             System.out.println("\nPlease enter the courseID for the course you would like to add");
+```
+             System.out.println("\nPlease enter the courseID for the course you would like to add");
                       ...
       	       while(courseCheck == false) {
 					courseID = s.nextLine();
@@ -161,8 +176,10 @@ A `boolean` method may avoid this type of error.
 						}
 					}
 				}
+```
 >If user enter a wrong CousreID, there are no any message shows up.
->       ...
+```
+       ...
         CSCE461      ADV TOP IN SOFTWARE ENGR                1198                   1             BESY108          MONDAY1230                   0                  19
         CSCE155                    COMP SCI I                1198              ONLINE                                                                                                                              null
         CSCE196                SPECIAL TOPICS                1198                   2              LPH137          MONDAY1030                  16                   3
@@ -171,5 +188,6 @@ A `boolean` method may avoid this type of error.
         111
         CSCE
         CSCE8899
+```
 >Error messages should give the user enough information to diagnose or fix the problem.\
 Ideally, should also provide instructions on what steps the user should take next
