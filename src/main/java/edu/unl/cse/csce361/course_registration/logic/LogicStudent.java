@@ -131,7 +131,6 @@ public class LogicStudent implements Student {
             } else if(student.getRegisteredCoursesID().contains(courseID)){
                 System.out.println("You can not register for multiple sections of the same course.");
             }else if (course instanceof OnlineCourses) {
-                OnlineCourses onlineCourses = (OnlineCourses) course;
                 student.getRegisteredCoursesID().add(courseID);
                 student.getRegisteredCoursesSections().add(section);
                 BackendFacade.writeStudents(studentList);
