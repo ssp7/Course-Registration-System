@@ -19,6 +19,11 @@ public class LogicStudent implements Student {
         this.maxEnrollment = maxEnrollment;
     }
 
+    /***
+     * Given the name of a student, checks that they are in the list of students.
+     * @param name The name of the student.
+     * @return Is the student in the system.
+     */
     public static boolean isNameValid(String name){
         ArrayList<StorageStudent> studentList = BackendFacade.readStudents();
         boolean valid = false;
