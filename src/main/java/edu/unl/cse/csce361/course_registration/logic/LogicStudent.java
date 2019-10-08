@@ -24,7 +24,7 @@ public class LogicStudent implements Student {
      * @param name The name of the student.
      * @return Is the student in the system.
      */
-    public static boolean isNameValid(String name){
+    static boolean isNameValid(String name){
         ArrayList<StorageStudent> studentList = BackendFacade.readStudents();
         boolean valid = false;
         int index = 0;
@@ -39,7 +39,7 @@ public class LogicStudent implements Student {
         return valid;
     }
 
-    public static boolean isCourseValid(String courseID){
+    static boolean isCourseValid(String courseID){
         ArrayList<StorageCourse> courseList = BackendFacade.readCourses();
         boolean valid = false;
         int index = 0;
@@ -53,7 +53,7 @@ public class LogicStudent implements Student {
         return valid;
     }
 
-    public static boolean isSectionValid(String courseID, String section){
+    static boolean isSectionValid(String courseID, String section){
         ArrayList<StorageCourse> courseList = BackendFacade.readCourses();
         boolean valid = false;
         int index = 0;
@@ -68,49 +68,47 @@ public class LogicStudent implements Student {
 		return valid;
     }
 
-    public boolean fulfillsPrerequisites(String courseID, String section){
-        System.out.println("Checking Perquisites");
-        boolean requiredCoursesCompleted = true;
+    private boolean fulfillsPrerequisites(String courseID, String section){
+        boolean isFulfilled = true;
         StorageStudent student = StorageStudent.getStudentWithName(studentList, studentName);
         ArrayList<String> completedCourses = student.getCompletedCoursesID();
+
         ClassroomCourse course = (ClassroomCourse) StorageCourse.getCourseWithID(courseList, courseID, section);
         ArrayList<String> requiredCourses = course.getPreReq();
-        System.out.println(requiredCourses);
-        if(requiredCourses.size() > 0){
-            //first PreReq
-            if(requiredCourses.get(0).contains("OR")){
-                String[] options =requiredCourses.get(0).split(" OR ");
-                if(!completedCourses.contains(options[0]) && !completedCourses.contains(options[1])){
-                    requiredCoursesCompleted = false;
-                    return requiredCoursesCompleted;
-                }
-            }else{
-                System.out.println("Checking first prereq");
-                if(!completedCourses.contains(requiredCourses.get(0))){
-                    requiredCoursesCompleted = false;
-                    return requiredCoursesCompleted;
-                }
-            }
-        }
 
-        if(requiredCourses.size() > 1){
-            //second PreReq
-            if(requiredCourses.get(1).contains("OR")){
-                String[] options =requiredCourses.get(1).split(" OR ");
-                if(!completedCourses.contains(options[0]) && !completedCourses.contains(options[1])){
-                    requiredCoursesCompleted = false;
-                    return requiredCoursesCompleted;
+        switch (requiredCourses.size()){
+            case 0:
+                break;
+
+            case 1:
+                isFulfilled = checkPerquisite(requiredCourses, completedCourses, 0);
+                break;
+
+            case 2:
+                isFulfilled = checkPerquisite(requiredCourses, completedCourses, 0);
+                if(isFulfilled){ //if the first prerequisite is fulfilled, check the second one.
+                    isFulfilled = checkPerquisite(requiredCourses, completedCourses, 1);
                 }
-            }else{
-                if(!completedCourses.contains(requiredCourses.get(0))){
-                    requiredCoursesCompleted = false;
-                    return requiredCoursesCompleted;
-                }
-            }
+                break;
         }
-        return requiredCoursesCompleted;
+        return isFulfilled;
     }
 
+    private boolean checkPerquisite(ArrayList<String> requiredCourses, ArrayList<String> completedCourses, int prerequisiteIndex){
+        boolean isFulfilled = true;
+        String prerequisite = requiredCourses.get(prerequisiteIndex);
+        if(prerequisite.contains("OR")){
+            String[] options = prerequisite.split(" OR ");
+            if(!completedCourses.contains(options[0]) && !completedCourses.contains(options[1])){
+                isFulfilled = false;
+            }
+        }else{
+            if(!completedCourses.contains(prerequisite)){
+                isFulfilled = false;
+            }
+        }
+        return isFulfilled;
+    }
 
     @Override
     public String getName() {
