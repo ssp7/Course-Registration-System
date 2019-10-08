@@ -58,8 +58,8 @@ public class OnlineCourses extends StorageCourse {
 	
 	public OnlineCourses() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
+
 	public OnlineCourses(String courseID, String courseName, String semester, String uRL) {
 		super();
 		CourseID = courseID;
@@ -70,9 +70,7 @@ public class OnlineCourses extends StorageCourse {
 
 	@Override
 	public void printInfo() {
-		// TODO Auto-generated method stub
-    System.out.printf("\n%s%30s%20s%20s%130s",getCourseID(),getCourseName(),getSemester(),getSection(),getURL());
-		
+    	System.out.printf("\n%s%30s%20s%20s%130s",getCourseID(),getCourseName(),getSemester(),getSection(),getURL());
 	}
 
 }

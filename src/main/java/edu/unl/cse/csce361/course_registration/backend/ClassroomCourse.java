@@ -32,7 +32,6 @@ public class ClassroomCourse extends StorageCourse{
 
 	public ClassroomCourse() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
@@ -46,7 +45,6 @@ public class ClassroomCourse extends StorageCourse{
 
 	@Override
 	public void printInfo() {
-		// TODO Auto-generated method stub
 		if(this.courseID.equals("CSCE10")) {
 
 			 System.out.printf("\n%s%30s%21s%20s%20s%20s%20d%20d",getCourseID(),getCourseName(),getSemester(),getSection(),getRoom(),getMeetingTime(),getStudentsRegistered(),getAvailableSeats());
